@@ -334,7 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d829e82394095f549805ef2f90c81827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensivity: 75
+  sensivity: 150
   body: {fileID: 543450651863305991}
 --- !u!1 &1316686824
 GameObject:
@@ -2557,6 +2557,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
+  jumpHeight: 1
 --- !u!4 &5901452233458933124
 Transform:
   m_ObjectHideFlags: 0

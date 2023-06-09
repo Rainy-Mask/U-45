@@ -1,13 +1,10 @@
 using UnityEngine;
 using DG.Tweening;
+
 public class CharacterMovement : MonoBehaviour
 {
-
-    // character movement
     private CharacterController characterController;
     [SerializeField] private float speed;
-
-    // character gravity
     private float gravity = -9.8f;
     private Vector3 velocity;
 
@@ -16,18 +13,19 @@ public class CharacterMovement : MonoBehaviour
     private float groundDistance = 0.4f;
     [SerializeField] private LayerMask groundMask;
 
-    // character run
     private float walkSpeed;
     private float runSpeed = 5f;
-    private Camera cam;
     private bool isRunning;
 
+    private Camera cam;
 
+    [SerializeField] private float jumpHeight = 3f;
+    private bool canJump;
 
     private void Start()
     {
         walkSpeed = speed;
-        cam = Camera.main;  
+        cam = Camera.main;
         characterController = GetComponent<CharacterController>();
     }
 
@@ -35,17 +33,21 @@ public class CharacterMovement : MonoBehaviour
     {
         DoMove();
         DoGravity();
+        DoJump();
+        DoSprint();
     }
 
     private void DoGravity()
     {
-        isGrounded = Physics.CheckSphere(groundPos.position, groundDistance, groundMask); // Zeminde olup olmadýðýmýzý anla
+        isGrounded = Physics.CheckSphere(groundPos.position, groundDistance, groundMask);
         velocity.y += gravity * Time.deltaTime;
 
-        if (isGrounded && velocity.y < 0) 
+        if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
+            canJump = true; // Zemindeyken zÄ±plamayÄ± saÄŸlar
         }
+
         characterController.Move(velocity * Time.deltaTime);
     }
 
@@ -58,21 +60,31 @@ public class CharacterMovement : MonoBehaviour
         characterController.Move(dir * speed * Time.deltaTime);
     }
 
-    private void DoSprint()
+    private void DoJump()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift)) 
+        if (canJump && Input.GetButtonDown("Jump"))
         {
-            isRunning = true;
-
-            DOTween.To(() => speed, x => speed = x, walkSpeed, 3); // speed deðerimi 3 saniye içinde runspeed deðerine eþitle.
-            cam.DOFieldOfView(90, 3);
-        }
-        else if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            isRunning = false;
-
-            DOTween.To(() => speed, x => speed = x, walkSpeed, 3);
-            cam.DOFieldOfView(60, 3);
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            canJump = false; // Tekrar yere deÄŸene kadar zÄ±plamayÄ± etkisiz hale getirir
         }
     }
+
+    private void DoSprint()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftShift) && isGrounded) // Sprint yapmadan Ã¶nce zeminde olup olmadÄ±ÄŸÄ±nÄ± kontrol et
+        {
+        isRunning = true;
+
+        DOTween.To(() => speed, x => speed = x, runSpeed, 3);
+        cam.DOFieldOfView(90, 3);
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftShift) || !isGrounded) // EÄŸer shift bÄ±rakÄ±lÄ±rsa ya da karakter zeminde deÄŸilse sprinti kes
+        {
+        isRunning = false;
+
+        DOTween.To(() => speed, x => speed = x, walkSpeed, 3);
+        cam.DOFieldOfView(60, 3);
+        }
+    }
+
 }
