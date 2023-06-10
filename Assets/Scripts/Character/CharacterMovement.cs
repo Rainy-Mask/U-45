@@ -1,10 +1,12 @@
 using UnityEngine;
 using DG.Tweening;
-
 public class CharacterMovement : MonoBehaviour
 {
+    // character movement
     private CharacterController characterController;
     [SerializeField] private float speed;
+
+    // character gravity
     private float gravity = -9.8f;
     private Vector3 velocity;
 
@@ -13,19 +15,18 @@ public class CharacterMovement : MonoBehaviour
     private float groundDistance = 0.4f;
     [SerializeField] private LayerMask groundMask;
 
+    // character run
     private float walkSpeed;
     private float runSpeed = 5f;
-    private bool isRunning;
-
     private Camera cam;
+    //private bool isRunning;
 
-    [SerializeField] private float jumpHeight = 3f;
-    private bool canJump;
+    [SerializeField] private float jumpHeight = 5f;
 
     private void Start()
     {
         walkSpeed = speed;
-        cam = Camera.main;
+        cam = Camera.main;  
         characterController = GetComponent<CharacterController>();
     }
 
@@ -33,57 +34,79 @@ public class CharacterMovement : MonoBehaviour
     {
         DoMove();
         DoGravity();
-        DoJump();
         DoSprint();
     }
 
     private void DoGravity()
     {
-        isGrounded = Physics.CheckSphere(groundPos.position, groundDistance, groundMask);
+        isGrounded = Physics.CheckSphere(groundPos.position, groundDistance, groundMask); // Zeminde olup olmad���m�z� anla
         velocity.y += gravity * Time.deltaTime;
 
-        if (isGrounded && velocity.y < 0)
+        if (isGrounded && velocity.y < 0) 
         {
             velocity.y = -2f;
-            canJump = true; // Zemindeyken zıplamayı sağlar
         }
-
         characterController.Move(velocity * Time.deltaTime);
     }
 
     private void DoMove()
     {
-        float hor = Input.GetAxis("Horizontal");
-        float ver = Input.GetAxis("Vertical");
-
-        Vector3 dir = transform.right * hor + transform.forward * ver;
-        characterController.Move(dir * speed * Time.deltaTime);
-    }
-
-    private void DoJump()
-    {
-        if (canJump && Input.GetButtonDown("Jump"))
+        Jump();
+        if (Input.GetKeyDown(KeyCode.W))
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-            canJump = false; // Tekrar yere değene kadar zıplamayı etkisiz hale getirir
+            float hor = Input.GetAxis("Horizontal");
+            float ver = Input.GetAxis("Vertical");
+
+            Vector3 dir = transform.right * hor + transform.forward * ver;
+            characterController.Move(dir * speed * Time.deltaTime);
+            this.GetComponent<Animator>().SetBool("isWalking", true);
+            this.GetComponent<Animator>().SetBool("isGrounded", true);
+            //Jump();
         }
+        if (Input.GetKeyUp(KeyCode.W))
+        {
+            this.GetComponent<Animator>().SetBool("isWalking", false);
+        }
+
+
     }
 
     private void DoSprint()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && isGrounded) // Sprint yapmadan önce zeminde olup olmadığını kontrol et
+        Jump();
+        if (Input.GetKeyDown(KeyCode.LeftShift)) 
         {
-        isRunning = true;
+            //isRunning = true;
+            this.GetComponent<Animator>().SetBool("isRunning", true);
+            this.GetComponent<Animator>().SetBool("isGrounded", true);
+            DOTween.To(() => speed, x => speed = x, runSpeed, 3); // speed degerimi 3 saniye icinde runspeed degerine esitle.
+            cam.DOFieldOfView(90, 3);
 
-        DOTween.To(() => speed, x => speed = x, runSpeed, 3);
-        cam.DOFieldOfView(90, 3);
+            //Jump();
         }
-        else if (Input.GetKeyUp(KeyCode.LeftShift) || !isGrounded) // Eğer shift bırakılırsa ya da karakter zeminde değilse sprinti kes
+        else if (Input.GetKeyUp(KeyCode.LeftShift))
         {
-        isRunning = false;
+            //isRunning = false;
+            this.GetComponent<Animator>().SetBool("isRunning", false);
+            DOTween.To(() => speed, x => speed = x, walkSpeed, 3);
+            cam.DOFieldOfView(60, 3);
+        }
+    }
 
-        DOTween.To(() => speed, x => speed = x, walkSpeed, 3);
-        cam.DOFieldOfView(60, 3);
+    private void Jump()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            this.GetComponent<Animator>().SetBool("isJumping", true);
+            this.GetComponent<Animator>().SetBool("isGrounded", false);
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            //this.GetComponent<Animator>().applyRootMotion = false;
+            this.GetComponent<Animator>().SetBool("isJumping", false);
+            this.GetComponent<Animator>().SetBool("isGrounded", true);
         }
     }
 
