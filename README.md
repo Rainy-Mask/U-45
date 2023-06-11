@@ -45,7 +45,7 @@ Oyunumuzu bootcamp sonrasında Steam'e yüklemeyi düşündüğümüz için oyun
 # Sprint 1
 
 - **Sprint içinde tamamlanması tahmin edilen puan**: 60 Puan
-- **Puan tamamlama mantığı**: Toplamda proje boyunca tamamlanması gereken 190 puanlık backlog bulunmaktadır. 3 sprint'e bölündüğünde ilk sprint'in en azından 100 ile başlaması gerektiğine karar verildi.
-- - **Daily Scrum**: Daily Scrum toplantılarımızın hepsinin Discord üzerinden yapılmasına karar verilmiştir. Daily Scrum toplantısı örneği jpeg olarak Readme'de tarafımızdan paylaşılmaktadır.
+- **Puan tamamlama mantığı**: Toplamda proje boyunca tamamlanması gereken 190 puanlık backlog bulunmaktadır. 3 sprint'e bölündüğünde ilk sprint'in en azından 60 ile başlaması gerektiğine karar verildi.
+- **Daily Scrum**: Daily Scrum toplantılarımızın hepsinin Discord üzerinden yapılmasına karar verilmiştir. Daily Scrum toplantısı örneği jpeg olarak Readme'de tarafımızdan paylaşılmaktadır.
 - **Ürün Durumu**: Ekran görüntüleri:
   ![image](https://github.com/Rainy-Mask/U-45/assets/107516137/3b9c4c06-9ffb-4425-9c3c-46e69864863b)
