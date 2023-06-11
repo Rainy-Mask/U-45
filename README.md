@@ -54,8 +54,8 @@ Oyunumuzu bootcamp sonrasında Steam'e yüklemeyi düşündüğümüz için oyun
 Alınan kararlar: TBC
 
 - **Sprint Retrospective:**
-- TBC
-- TBC
+  - TBC
+  - TBC
 
  
 
