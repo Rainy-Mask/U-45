@@ -5,14 +5,14 @@ Unity 45
 Oyun İle İlgili Bilgiler
 
 Takım Elemanları
-Cemre Uysal:Product Owner
-Yiğit Bozbay: Scrum Master
-Furkan Korkmazgöz: Developer
-Ahmet Melih Kara: Developer
-Emine Ecem Nayir: Developer
+- Cemre Uysal:Product Owner
+- Yiğit Bozbay: Scrum Master
+- Furkan Korkmazgöz: Developer
+- Ahmet Melih Kara: Developer
+- Emine Ecem Nayir: Developer
 
 Oyun İsmi
-- - Yalnızlığın Çığlığı - 
+- Yalnızlığın Çığlığı 
 
 Product Backlog URL
 
@@ -28,7 +28,7 @@ Oyunumuzun ana tanımları: Macera - Atmosferik - Hikâye - Dram - Karanlık - G
 
 Hedef Kitle
 
-Macera ve Kıyamet Sonrası Tema Severler.
-Hikaye Odaklı Oyun Severler.
-Atmosferik Deneyim Arayan Oyuncular.
-İçsel yolculuk ve Dram severler.
+- Macera ve Kıyamet Sonrası Tema Severler.
+- Hikaye Odaklı Oyun Severler.
+- Atmosferik Deneyim Arayan Oyuncular.
+- İçsel yolculuk ve Dram severler.
