@@ -49,3 +49,15 @@ Oyunumuzu bootcamp sonrasında Steam'e yüklemeyi düşündüğümüz için oyun
 - **Daily Scrum**: Daily Scrum toplantılarımızın hepsinin Discord üzerinden yapılmasına karar verilmiştir. Daily Scrum toplantısı örneği jpeg olarak Readme'de tarafımızdan paylaşılmaktadır.
 - **Ürün Durumu**: Ekran görüntüleri:
   ![image](https://github.com/Rainy-Mask/U-45/assets/107516137/3b9c4c06-9ffb-4425-9c3c-46e69864863b)
+  
+  - **Sprint Review**: 
+Alınan kararlar: TBC
+
+- **Sprint Retrospective:**
+- TBC
+- TBC
+
+ 
+
+
+---
