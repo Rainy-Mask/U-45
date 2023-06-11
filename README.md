@@ -13,7 +13,7 @@ Unity 45
 
 ## Oyun İsmi
 
-- Yalnızlığın Çığlığı 
+- YALNIZLIĞIN ÇIĞLIĞI 
 
 ## Product Backlog URL
 
