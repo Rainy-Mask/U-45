@@ -18,32 +18,34 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         item = newItem;
         image.sprite = newItem.image;
-        //RefreshCount();
+        RefreshCount();
     }
 
-    /*public void RefreshCount()
+    public void RefreshCount()
     {
         countText.text = count.ToString();
         bool textActive = count>1;
         countText.gameObject.SetActive(textActive);
-    }*/
+    }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
         image.raycastTarget = false;
         parentAfterDrag = transform.parent;
         transform.SetParent(transform.root);
+        countText.gameObject.SetActive(false);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         transform.position = Input.mousePosition;
-
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         image.raycastTarget = true;
         transform.SetParent(parentAfterDrag);
+        if (count > 1)
+        countText.gameObject.SetActive(true);
     }
 }

@@ -12,10 +12,10 @@ public class InventoryManager : MonoBehaviour
         {
             InventorySlot slot = inventorySlots[i];
             InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
-            if (itemInSlot != null && itemInSlot.item == item && itemInSlot.count<4)
+            if (itemInSlot != null && itemInSlot.item == item && itemInSlot.count<4 && item.stackable == true)
             {
                 itemInSlot.count++;
-                //itemInSlot.RefreshCount();
+                itemInSlot.RefreshCount();
                 return true;
             }
         }
