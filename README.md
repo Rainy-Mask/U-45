@@ -9,7 +9,7 @@ Unity 45
 - Yiğit Bozbay: Scrum Master
 - Furkan Korkmazgöz: Developer
 - Ahmet Melih Kara: Developer
-- Emine Ecem Nayir: Developer
+- Emine Ecem Nayir: Developer / Game Artist
 
 ## Oyun İsmi
 
