@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public Image image;
-    public Text countText; //Drag and Drop sistemini kilitliyor Aþaðýdaki tüm yorum satýrlarý bu yüzden konuldu
+    public Text countText; //Drag and Drop sistemini kilitliyor Asagýdaki tum yorum satýrlarý bu yuzden konuldu
 
     [HideInInspector] public Item item;
     [HideInInspector] public int count = 1;

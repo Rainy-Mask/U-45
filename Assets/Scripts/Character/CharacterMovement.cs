@@ -21,6 +21,9 @@ public class CharacterMovement : MonoBehaviour
     private Camera cam;
     //private bool isRunning;
 
+    // inventory scene
+    public GameObject mainInventory;
+
     [SerializeField] private float jumpHeight = 5f;
 
     private void Start()
@@ -35,6 +38,7 @@ public class CharacterMovement : MonoBehaviour
         DoMove();
         DoGravity();
         DoSprint();
+        CheckInventory();
     }
 
     private void DoGravity()
@@ -95,8 +99,9 @@ public class CharacterMovement : MonoBehaviour
 
     private void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded==true)
         {
+            isGrounded = false;
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             this.GetComponent<Animator>().SetBool("isJumping", true);
             this.GetComponent<Animator>().SetBool("isGrounded", false);
@@ -107,6 +112,19 @@ public class CharacterMovement : MonoBehaviour
             //this.GetComponent<Animator>().applyRootMotion = false;
             this.GetComponent<Animator>().SetBool("isJumping", false);
             this.GetComponent<Animator>().SetBool("isGrounded", true);
+        }
+    }
+
+    void CheckInventory()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            mainInventory.SetActive(true);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            mainInventory.SetActive(false);
         }
     }
 

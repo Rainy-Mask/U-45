@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class DemoScript : MonoBehaviour
 {
-    public InventoryManager inventoryManager;
+    [SerializeField]
+    private InventoryManager inventoryManager;
     public Item[] itemsToPickup;
-
+    private void Start()
+    {
+        inventoryManager = FindObjectOfType<InventoryManager>();
+    }
     public void PickupItem(int id)
     {
         bool result = inventoryManager.AddItem(itemsToPickup[id]);

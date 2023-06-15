@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8e86c843d1086143bdffea3076ce1b2, type: 3}
   m_Name: Hamburger
   m_EditorClassIdentifier: 
-  image: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  image: {fileID: 21300000, guid: ed3700062767dc2498ed724fd2d0639e, type: 3}
   type: 1
   stackable: 1
+  itemPrefab: {fileID: 5459692925457968299, guid: 8ce92b8519c140f4ab2a423f3033fbe9, type: 3}
