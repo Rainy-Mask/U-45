@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using DG.Tweening;
 public class CharacterMovement : MonoBehaviour
 {
@@ -26,24 +27,38 @@ public class CharacterMovement : MonoBehaviour
 
     [SerializeField] private float jumpHeight = 5f;
 
+    PlayerStats playerStats;
+    private GameObject statusPanel;
+
+
     private void Start()
     {
         walkSpeed = speed;
         cam = Camera.main;  
         characterController = GetComponent<CharacterController>();
+        playerStats = GetComponent<PlayerStats>();
+        statusPanel = GameObject.Find("StatusPanel");
+        
+
     }
 
-    private void Update()
+        private void Update()
     {
-        DoMove();
-        DoGravity();
-        DoSprint();
-        CheckInventory();
+        if (!mainInventory.activeSelf) // Sadece envanter kapalıyken karakterin hareketini kontrol et
+        {
+            DoMove();
+            DoGravity();
+            DoSprint();
+        }
+
+        ToggleInventory();
+        UpdateStatusUI();
     }
+
 
     private void DoGravity()
     {
-        isGrounded = Physics.CheckSphere(groundPos.position, groundDistance, groundMask); // Zeminde olup olmad���m�z� anla
+        isGrounded = Physics.CheckSphere(groundPos.position, groundDistance, groundMask); // Zeminde olup olmad���m�z� anla
         velocity.y += gravity * Time.deltaTime;
 
         if (isGrounded && velocity.y < 0) 
@@ -54,48 +69,54 @@ public class CharacterMovement : MonoBehaviour
     }
 
     private void DoMove()
+{
+    Jump();
+    if (Input.GetKeyDown(KeyCode.W))
     {
-        Jump();
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            float hor = Input.GetAxis("Horizontal");
-            float ver = Input.GetAxis("Vertical");
+        float hor = Input.GetAxis("Horizontal");
+        float ver = Input.GetAxis("Vertical");
 
-            Vector3 dir = transform.right * hor + transform.forward * ver;
-            characterController.Move(dir * speed * Time.deltaTime);
-            this.GetComponent<Animator>().SetBool("isWalking", true);
-            this.GetComponent<Animator>().SetBool("isGrounded", true);
-            //Jump();
-        }
-        if (Input.GetKeyUp(KeyCode.W))
-        {
-            this.GetComponent<Animator>().SetBool("isWalking", false);
-        }
+        Vector3 dir = transform.right * hor + transform.forward * ver;
+        characterController.Move(dir * speed * Time.deltaTime);
 
+        /* playerStats.DecreaseHunger(0.1f); // Yürüme ile açlık seviyesini azalt
+        playerStats.DecreaseThirst(0.1f); // Yürüme ile susuzluk seviyesini azalt !!!!!!!!!!!!!!!!! Açlık SUSUZLUK*/
 
+        this.GetComponent<Animator>().SetBool("isWalking", true);
+        this.GetComponent<Animator>().SetBool("isGrounded", true);
     }
-
-    private void DoSprint()
+    if (Input.GetKeyUp(KeyCode.W))
     {
-        Jump();
-        if (Input.GetKeyDown(KeyCode.LeftShift)) 
-        {
-            //isRunning = true;
-            this.GetComponent<Animator>().SetBool("isRunning", true);
-            this.GetComponent<Animator>().SetBool("isGrounded", true);
-            DOTween.To(() => speed, x => speed = x, runSpeed, 3); // speed degerimi 3 saniye icinde runspeed degerine esitle.
-            cam.DOFieldOfView(90, 3);
-
-            //Jump();
-        }
-        else if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            //isRunning = false;
-            this.GetComponent<Animator>().SetBool("isRunning", false);
-            DOTween.To(() => speed, x => speed = x, walkSpeed, 3);
-            cam.DOFieldOfView(60, 3);
-        }
+        this.GetComponent<Animator>().SetBool("isWalking", false);
     }
+}
+
+private void DoSprint()
+{
+    Jump();
+    if (Input.GetKeyDown(KeyCode.LeftShift))
+    {
+        //isRunning = true;
+        this.GetComponent<Animator>().SetBool("isRunning", true);
+        this.GetComponent<Animator>().SetBool("isGrounded", true);
+        DOTween.To(() => speed, x => speed = x, runSpeed, 3); // speed degerimi 3 saniye icinde runspeed degerine esitle.
+        cam.DOFieldOfView(90, 3);
+
+/*         playerStats.DecreaseHunger(0.2f); // Sprint ile açlık seviyesini daha hızlı azalt
+        playerStats.DecreaseThirst(0.2f); // Sprint ile susuzluk seviyesini daha hızlı azalt    !!!!!!!!!!!!!!!!!!!!! Açlık Susuzluk*/         
+
+        //Jump();
+    }
+    else if (Input.GetKeyUp(KeyCode.LeftShift))
+    {
+        //isRunning = false;
+        this.GetComponent<Animator>().SetBool("isRunning", false);
+        DOTween.To(() => speed, x => speed = x, walkSpeed, 3);
+        cam.DOFieldOfView(60, 3);
+    }
+}
+
+
 
     private void Jump()
     {
@@ -115,7 +136,7 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
-    void CheckInventory()
+    /* void CheckInventory()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
@@ -126,6 +147,52 @@ public class CharacterMovement : MonoBehaviour
         {
             mainInventory.SetActive(false);
         }
+    } */
+
+    public void ToggleInventory()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            bool isInventoryActive = !mainInventory.activeSelf; // Envanter durumunu kontrol et
+
+            mainInventory.SetActive(isInventoryActive); // Envanteri aç veya kapat
+
+            if (isInventoryActive)
+            {
+                characterController.enabled = false; // Karakter kontrolünü devre dışı bırak
+                this.GetComponent<Animator>().SetBool("isWalking", false); // Yürüme animasyonunu durdur
+                this.GetComponent<Animator>().SetBool("isRunning", false); // Sprint animasyonunu durdur
+            }
+            else
+            {
+                characterController.enabled = true; // Karakter kontrolünü etkinleştir
+            }
+        }
     }
 
+    private void UpdateStatusUI()
+    {
+    if (statusPanel != null)
+    {
+        Text hungerText = statusPanel.transform.Find("HungerText").GetComponent<Text>();
+        if (hungerText != null)
+        {
+            hungerText.text = "Hunger: " + playerStats.hunger.ToString();
+        }
+
+        Text thirstText = statusPanel.transform.Find("ThirstText").GetComponent<Text>();
+        if (thirstText != null)
+        {
+            thirstText.text = "Thirst: " + playerStats.thirst.ToString();
+        }
+    }
+    }
+
+
+
+
 }
+
+
+
+
