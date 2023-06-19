@@ -57,15 +57,15 @@ Oyunumuzu bootcamp sonrasında Steam'e yüklemeyi düşündüğümüz için oyun
   
 - **Sprint Review**: 
 Alınan kararlar:
-- Bir sonraki sprint dönemi için yapılacaklar listesi oluşturuldu ve öncelikler sıralandı.
-- Bu sprint döneminde karşılaştığımız sorunlar ve çözüm yolları konuşuldu. İşbirliğinin ve düzenin daha da artması için yollar konuşuldu.
-- Ekipteki üyelerin çalışma süreleri ve rolleri gözden geçirildi, bütün ekip rollerinden ve çalışmalarından memnun olduğunu belirtti. Yeni sprint döneminde rollerde herhangi bir değişilikliğe gidilmeyecek.
+  - Bir sonraki sprint dönemi için yapılacaklar listesi oluşturuldu ve öncelikler sıralandı.
+  - Bu sprint döneminde karşılaştığımız sorunlar ve çözüm yolları konuşuldu. İşbirliğinin ve düzenin daha da artması için yollar konuşuldu.
+  - Ekipteki üyelerin çalışma süreleri ve rolleri gözden geçirildi, bütün ekip rollerinden ve çalışmalarından memnun olduğunu belirtti. Yeni sprint döneminde rollerde herhangi bir değişilikliğe gidilmeyecek.
 
-  **Sprint Review Katılımcıları** : Yiğit Bozbay, Cemre Uysal, Ahmet Melih Kara, Furkan Korkmazgöz, Emine Ecem Nayir.
+- **Sprint Review Katılımcıları** : Yiğit Bozbay, Cemre Uysal, Ahmet Melih Kara, Furkan Korkmazgöz, Emine Ecem Nayir.
 
-  **Sprint Retrospective** : Toplantıda aldığımız kararlar aşağıda belirtilmiştir.
+- **Sprint Retrospective** : Toplantıda aldığımız kararlar aşağıda belirtilmiştir.
   
-  - Ekibin iletişim seviyesinin gayet yerinde olduğu, her gün ve düzenli şekilde yaptığımız toplantıların takım iletişimimize ve iş birliği ile zorlukların üstesinden daha kolay gelmemizi sağladığına hemfikir olundu. Toplantılara aynı şekilde devam edilecek, yeni sprint döneminde 1. Sprint döneminde yapılmış şeylerin de üzerinden geçip + - leri konuşulacak.
+  - Ekibin iletişim seviyesinin gayet yerinde olduğu, her gün ve düzenli şekilde yaptığımız toplantıların takım iletişimimize ve iş birliği ile zorlukların üstesinden daha kolay gelmemizi sağladığına hemfikir olundu. Toplantılara aynı şekilde devam edilecek, yeni sprint döneminde 1. Sprint döneminde yapılmış şeylerin de üzerinden geçip artı ve eksileri konuşulacak.
   - Elimizden geldiğinde kendi üstümüze düşen görevleri bitirdiğimizde diğer arkadaşlarımızın görevlerine destek olmaya çalışacağız, ortak şekilde görevleri üstlenip daha hızlı ve sağlıklı şekilde bitirmeye çalışacağız.
 
  
