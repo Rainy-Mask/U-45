@@ -66,7 +66,7 @@ Alınan kararlar:
 - **Sprint Retrospective** : Toplantıda aldığımız kararlar aşağıda belirtilmiştir.
   
   - Ekibin iletişim seviyesinin gayet yerinde olduğu, her gün ve düzenli şekilde yaptığımız toplantıların takım iletişimimize ve iş birliği ile zorlukların üstesinden daha kolay gelmemizi sağladığına hemfikir olundu. Toplantılara aynı şekilde devam edilecek, yeni sprint döneminde 1. Sprint döneminde yapılmış şeylerin de üzerinden geçip artı ve eksileri konuşulacak.
-  - Elimizden geldiğinde kendi üstümüze düşen görevleri bitirdiğimizde diğer arkadaşlarımızın görevlerine destek olmaya çalışacağız, ortak şekilde görevleri üstlenip daha hızlı ve sağlıklı şekilde bitirmeye çalışacağız.
+  - Elimizden geldiğince kendi üstümüze düşen görevleri bitirdiğimizde diğer arkadaşlarımızın görevlerine destek olmaya çalışacağız, ortak şekilde görevleri üstlenip daha hızlı ve sağlıklı şekilde bitirmeye çalışacağız.
 
  
 
