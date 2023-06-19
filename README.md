@@ -68,7 +68,7 @@ Alınan kararlar:
 
   - Günlük toplantılar yapılacak: Ekipçe buluşmaların takımı motive ettiğine karar verildi ve bu sebeple günlük toplantı saatleri belirlendi. Herkesin toplantı saatlerinde yaptığı şeyleri birbirine anlatması istenildi. Yapılanlar hakkında görüş alışverişi yapılmasının güzel olacağına karar verildi. Bu sayede takım içi iletişim ve işbirliği güçlenecektir.
 
-  - Takımda birbirinin görevlerine destek olunacak: Elimizden geldiğince kendi üstümüze düşen görevleri bitirdiğimizde diğer arkadaşlarımızın görevlerine destek olmaya çalışacağız, ortak şekilde görevleri üstlenip daha hızlı ve sağlıklı şekilde bitirmeye çalışacağız. 
+  - Takımda birbirinin görevlerine destek olunacak: Kendi üstümüze düşen görevleri bitirdiğimizde diğer arkadaşlarımızın görevlerine destek olmaya çalışılacak. Ortak şekilde görevler üstlenip daha hızlı ve sağlıklı şekilde bitirilecek.
 
 
  
