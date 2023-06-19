@@ -7,6 +7,7 @@ public class DemoScript : MonoBehaviour
     [SerializeField]
     private InventoryManager inventoryManager;
     public Item[] itemsToPickup;
+
     private void Start()
     {
         inventoryManager = FindObjectOfType<InventoryManager>();
@@ -20,5 +21,30 @@ public class DemoScript : MonoBehaviour
         }
         else
             Debug.Log("Item not Added");
+    }
+
+    public void DeleteItem()
+    {
+        Item recievedItem = inventoryManager.DeleteItem();
+        if (recievedItem != null)
+        {
+            Debug.Log("Recieved item : " + recievedItem);
+        }
+        else
+        {
+            Debug.Log("Not recieved");
+        }
+    }
+    public void DropItem() 
+    {
+        Item recievedItem = inventoryManager.DropItem();
+        if (recievedItem != null)
+        {
+            Debug.Log("Droped item : " + recievedItem);
+        }
+        else
+        {
+            Debug.Log("Not recieved");
+        }
     }
 }
