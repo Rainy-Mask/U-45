@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,8 +8,9 @@ public class InventoryManager : MonoBehaviour
     public InventorySlot[] inventorySlots;
     public GameObject inventoryItemPrefab;
     public Transform MainCharTransform;
-
+    
     int selectedSlot = -1;
+   
 
     private void Start()
     {
@@ -24,7 +26,6 @@ public class InventoryManager : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Alpha5)) { ChangeSelectedSlot(4); }
         else if (Input.GetKeyDown(KeyCode.Alpha6)) { ChangeSelectedSlot(5); }
         else if (Input.GetKeyDown(KeyCode.Alpha7)) { ChangeSelectedSlot(6); }
-
     }
 
     void ChangeSelectedSlot(int newValue)
@@ -68,11 +69,10 @@ public class InventoryManager : MonoBehaviour
         InventoryItem invItem = newItemGO.GetComponent<InventoryItem>();
         invItem.InitializeItem(item);
     } 
-    public void SpawnItem(Item item) // Item drop kismi icin olusturuldu ama daha bitmedi
+    public void SpawnItem(GameObject itemPrefab) // Item drop kismi icin olusturuldu ama daha bitmedi
     {
-        GameObject newItemGO = Instantiate(inventoryItemPrefab, MainCharTransform.position, Quaternion.identity);
-        InventoryItem invItem = newItemGO.GetComponent<InventoryItem>();
-        invItem.InitializeItem(item);
+        Vector3 spawnPosition = MainCharTransform.position + new Vector3(0f, 0f, 3f);
+        GameObject newItemGO = Instantiate(itemPrefab , spawnPosition , Quaternion.identity);
     }
     
     public Item DeleteItem()
@@ -93,17 +93,17 @@ public class InventoryManager : MonoBehaviour
             }
             return item;
         }
-        return null;
+        return null;    
     } 
     public Item DropItem() // Envanterdeki itemleri disariya atmak icin olusturuldu.
     {
         InventorySlot slot = inventorySlots[selectedSlot];
         InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
-        if(itemInSlot != null)
+        if (itemInSlot != null)
         {
             Item item = itemInSlot.item;
             itemInSlot.count--;
-            SpawnItem(item);
+            SpawnItem(item.itemPrefab);
             if (itemInSlot.count <= 0)
             {
                 Destroy(itemInSlot.gameObject);

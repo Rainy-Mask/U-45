@@ -38,6 +38,7 @@ public class DemoScript : MonoBehaviour
     public void DropItem() 
     {
         Item recievedItem = inventoryManager.DropItem();
+        
         if (recievedItem != null)
         {
             Debug.Log("Droped item : " + recievedItem);
