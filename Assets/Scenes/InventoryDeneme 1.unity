@@ -630,6 +630,10 @@ PrefabInstance:
       propertyPath: mainInventory
       value: 
       objectReference: {fileID: 413253860}
+    - target: {fileID: 3254270383563975471, guid: fb3c9f153c0739849a70440cf9638872, type: 3}
+      propertyPath: characterTransform
+      value: 
+      objectReference: {fileID: 1399593693}
     - target: {fileID: 8107185027167169517, guid: fb3c9f153c0739849a70440cf9638872, type: 3}
       propertyPath: m_Name
       value: Remy
@@ -678,6 +682,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8954255595850198991, guid: fb3c9f153c0739849a70440cf9638872, type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 1399593693}
+    - target: {fileID: 8954255595850198991, guid: fb3c9f153c0739849a70440cf9638872, type: 3}
+      propertyPath: characterHead
+      value: 
+      objectReference: {fileID: 1688335282}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb3c9f153c0739849a70440cf9638872, type: 3}
 --- !u!114 &743475126 stripped
@@ -1269,6 +1281,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbb297d3e69b27d478ecebaebde7ab61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1688335282 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8940104235494887618, guid: fb3c9f153c0739849a70440cf9638872, type: 3}
+  m_PrefabInstance: {fileID: 713184858}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1693588622 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5966229158905485258, guid: 3b22865aafe716049b47f49bc373e85a, type: 3}

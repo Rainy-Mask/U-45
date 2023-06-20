@@ -1,12 +1,11 @@
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class MouseLook : MonoBehaviour
 {
     public float sensivity = 100f;
     public Transform body;
-
     private float xRot = 0;
-
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -24,3 +23,4 @@ public class MouseLook : MonoBehaviour
         body.Rotate(Vector3.up * hor);
     }
 }
+

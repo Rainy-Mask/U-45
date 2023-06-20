@@ -69,52 +69,91 @@ public class CharacterMovement : MonoBehaviour
     }
 
     private void DoMove()
-{
-    Jump();
-    if (Input.GetKeyDown(KeyCode.W))
     {
+        Jump();
         float hor = Input.GetAxis("Horizontal");
         float ver = Input.GetAxis("Vertical");
-
         Vector3 dir = transform.right * hor + transform.forward * ver;
         characterController.Move(dir * speed * Time.deltaTime);
 
-        /* playerStats.DecreaseHunger(0.1f); // Yürüme ile açlık seviyesini azalt
-        playerStats.DecreaseThirst(0.1f); // Yürüme ile susuzluk seviyesini azalt !!!!!!!!!!!!!!!!! Açlık SUSUZLUK*/
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            /* playerStats.DecreaseHunger(0.1f); // Yürüme ile açlık seviyesini azalt
+            playerStats.DecreaseThirst(0.1f); // Yürüme ile susuzluk seviyesini azalt !!!!!!!!!!!!!!!!! Açlık SUSUZLUK*/
 
-        this.GetComponent<Animator>().SetBool("isWalking", true);
-        this.GetComponent<Animator>().SetBool("isGrounded", true);
+            this.GetComponent<Animator>().SetBool("isWalking", true);
+            this.GetComponent<Animator>().SetBool("isGrounded", true);
+        }
+        if (Input.GetKeyUp(KeyCode.W))
+        {
+            this.GetComponent<Animator>().SetBool("isWalking", false);
+        }
+        //left
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            /* playerStats.DecreaseHunger(0.1f); // Yürüme ile açlık seviyesini azalt
+            playerStats.DecreaseThirst(0.1f); // Yürüme ile susuzluk seviyesini azalt !!!!!!!!!!!!!!!!! Açlık SUSUZLUK*/
+
+            this.GetComponent<Animator>().SetBool("isLeft", true);
+            this.GetComponent<Animator>().SetBool("isGrounded", true);
+        }
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+            this.GetComponent<Animator>().SetBool("isLeft", false);
+        }
+        //right
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            /* playerStats.DecreaseHunger(0.1f); // Yürüme ile açlık seviyesini azalt
+            playerStats.DecreaseThirst(0.1f); // Yürüme ile susuzluk seviyesini azalt !!!!!!!!!!!!!!!!! Açlık SUSUZLUK*/
+
+            this.GetComponent<Animator>().SetBool("isRight", true);
+            this.GetComponent<Animator>().SetBool("isGrounded", true);
+        }
+        if (Input.GetKeyUp(KeyCode.D))
+        {
+            this.GetComponent<Animator>().SetBool("isRight", false);
+        }
+
+        //back
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            /* playerStats.DecreaseHunger(0.1f); // Yürüme ile açlık seviyesini azalt
+            playerStats.DecreaseThirst(0.1f); // Yürüme ile susuzluk seviyesini azalt !!!!!!!!!!!!!!!!! Açlık SUSUZLUK*/
+
+            this.GetComponent<Animator>().SetBool("isBack", true);
+            this.GetComponent<Animator>().SetBool("isGrounded", true);
+        }
+        if (Input.GetKeyUp(KeyCode.S))
+        {
+            this.GetComponent<Animator>().SetBool("isBack", false);
+        }
     }
-    if (Input.GetKeyUp(KeyCode.W))
+
+    private void DoSprint()
     {
-        this.GetComponent<Animator>().SetBool("isWalking", false);
-    }
-}
+        Jump();
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            //isRunning = true;
+            this.GetComponent<Animator>().SetBool("isRunning", true);
+            this.GetComponent<Animator>().SetBool("isGrounded", true);
+            DOTween.To(() => speed, x => speed = x, runSpeed, 3); // speed degerimi 3 saniye icinde runspeed degerine esitle.
+            cam.DOFieldOfView(90, 3);
 
-private void DoSprint()
-{
-    Jump();
-    if (Input.GetKeyDown(KeyCode.LeftShift))
-    {
-        //isRunning = true;
-        this.GetComponent<Animator>().SetBool("isRunning", true);
-        this.GetComponent<Animator>().SetBool("isGrounded", true);
-        DOTween.To(() => speed, x => speed = x, runSpeed, 3); // speed degerimi 3 saniye icinde runspeed degerine esitle.
-        cam.DOFieldOfView(90, 3);
+    /*         playerStats.DecreaseHunger(0.2f); // Sprint ile açlık seviyesini daha hızlı azalt
+            playerStats.DecreaseThirst(0.2f); // Sprint ile susuzluk seviyesini daha hızlı azalt    !!!!!!!!!!!!!!!!!!!!! Açlık Susuzluk*/         
 
-/*         playerStats.DecreaseHunger(0.2f); // Sprint ile açlık seviyesini daha hızlı azalt
-        playerStats.DecreaseThirst(0.2f); // Sprint ile susuzluk seviyesini daha hızlı azalt    !!!!!!!!!!!!!!!!!!!!! Açlık Susuzluk*/         
-
-        //Jump();
+            //Jump();
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            //isRunning = false;
+            this.GetComponent<Animator>().SetBool("isRunning", false);
+            DOTween.To(() => speed, x => speed = x, walkSpeed, 3);
+            cam.DOFieldOfView(60, 3);
+        }
     }
-    else if (Input.GetKeyUp(KeyCode.LeftShift))
-    {
-        //isRunning = false;
-        this.GetComponent<Animator>().SetBool("isRunning", false);
-        DOTween.To(() => speed, x => speed = x, walkSpeed, 3);
-        cam.DOFieldOfView(60, 3);
-    }
-}
 
 
 
