@@ -154,17 +154,18 @@ private void DoSprint()
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             bool isInventoryActive = !mainInventory.activeSelf; // Envanter durumunu kontrol et
-
             mainInventory.SetActive(isInventoryActive); // Envanteri aç veya kapat
 
             if (isInventoryActive)
             {
                 characterController.enabled = false; // Karakter kontrolünü devre dışı bırak
+                Cursor.lockState = CursorLockMode.None;
                 this.GetComponent<Animator>().SetBool("isWalking", false); // Yürüme animasyonunu durdur
                 this.GetComponent<Animator>().SetBool("isRunning", false); // Sprint animasyonunu durdur
             }
             else
             {
+                Cursor.lockState = CursorLockMode.Locked;
                 characterController.enabled = true; // Karakter kontrolünü etkinleştir
             }
         }
