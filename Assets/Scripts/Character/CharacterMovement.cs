@@ -12,7 +12,7 @@ public class CharacterMovement : MonoBehaviour
     private Vector3 velocity;
 
     [SerializeField] private Transform groundPos;
-    [SerializeField] private bool isGrounded;
+    public bool isGrounded;
     private float groundDistance = 0.4f;
     [SerializeField] private LayerMask groundMask;
 

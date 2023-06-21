@@ -4,17 +4,19 @@ public class MouseLook : MonoBehaviour
 {
     public float sensitivity = 100f;
     public Transform body;
-    public float jumpCameraOffset = 1.9f; // Zıplama animasyonunda kamera yukarı kaydırma miktarı
-    public float cameraResetSpeed = 2f; // Kamera resetleme hızı
+    public float jumpCameraOffset = 1.5f; // Zıplama animasyonunda kamera yukarı kaydırma miktarı
+    public float cameraResetSpeed = 1.9f; // Kamera resetleme hızı
 
     private float xRot = 0;
     private float originalCameraHeight;
     private bool isJumping = false;
+    private CharacterMovement characterMovement;
 
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         originalCameraHeight = transform.localPosition.y; // Kameranın orijinal yüksekliği
+        characterMovement = FindObjectOfType<CharacterMovement>();
     }
 
     private void Update()
@@ -28,7 +30,7 @@ public class MouseLook : MonoBehaviour
         transform.localRotation = Quaternion.Euler(xRot, 0, 0);
         body.Rotate(Vector3.up * hor);
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && characterMovement.isGrounded)
         {
             isJumping = true;
         }
