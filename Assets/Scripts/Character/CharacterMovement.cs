@@ -28,7 +28,7 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private float jumpHeight = 5f;
 
     PlayerStats playerStats;
-    private GameObject statusPanel;
+    private GameObject panel;
 
 
     private void Start()
@@ -37,7 +37,8 @@ public class CharacterMovement : MonoBehaviour
         cam = Camera.main;  
         characterController = GetComponent<CharacterController>();
         playerStats = GetComponent<PlayerStats>();
-        statusPanel = GameObject.Find("StatusPanel");
+        panel = GameObject.Find("statusPanel");
+        
         
 
     }
@@ -50,7 +51,7 @@ public class CharacterMovement : MonoBehaviour
             DoGravity();
             DoSprint();
         }
-
+        playerStats.DecreaseSanity(0.5f * Time.deltaTime); // Katsayıyı ihtiyaçlarınıza göre ayarlayabilirsiniz
         ToggleInventory();
         UpdateStatusUI();
     }
@@ -58,7 +59,7 @@ public class CharacterMovement : MonoBehaviour
 
     private void DoGravity()
     {
-        isGrounded = Physics.CheckSphere(groundPos.position, groundDistance, groundMask); // Zeminde olup olmad���m�z� anla
+        isGrounded = Physics.CheckSphere(groundPos.position, groundDistance, groundMask); // Zeminde olup olmadığımızı anla
         velocity.y += gravity * Time.deltaTime;
 
         if (isGrounded && velocity.y < 0) 
@@ -76,10 +77,10 @@ public class CharacterMovement : MonoBehaviour
         Vector3 dir = transform.right * hor + transform.forward * ver;
         characterController.Move(dir * speed * Time.deltaTime);
 
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKey(KeyCode.W))
         {
-            /* playerStats.DecreaseHunger(0.1f); // Yürüme ile açlık seviyesini azalt
-            playerStats.DecreaseThirst(0.1f); // Yürüme ile susuzluk seviyesini azalt !!!!!!!!!!!!!!!!! Açlık SUSUZLUK*/
+            playerStats.DecreaseHunger(0.01f); // Yürüme ile açlık seviyesini azalt
+            playerStats.DecreaseThirst(0.01f); // Yürüme ile susuzluk seviyesini azalt
 
             this.GetComponent<Animator>().SetBool("isWalking", true);
             this.GetComponent<Animator>().SetBool("isGrounded", true);
@@ -89,10 +90,10 @@ public class CharacterMovement : MonoBehaviour
             this.GetComponent<Animator>().SetBool("isWalking", false);
         }
         //left
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
-            /* playerStats.DecreaseHunger(0.1f); // Yürüme ile açlık seviyesini azalt
-            playerStats.DecreaseThirst(0.1f); // Yürüme ile susuzluk seviyesini azalt !!!!!!!!!!!!!!!!! Açlık SUSUZLUK*/
+            playerStats.DecreaseHunger(0.005f); // Yürüme ile açlık seviyesini azalt
+            playerStats.DecreaseThirst(0.005f); // Yürüme ile susuzluk seviyesini azalt
 
             this.GetComponent<Animator>().SetBool("isLeft", true);
             this.GetComponent<Animator>().SetBool("isGrounded", true);
@@ -102,10 +103,10 @@ public class CharacterMovement : MonoBehaviour
             this.GetComponent<Animator>().SetBool("isLeft", false);
         }
         //right
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
         {
-            /* playerStats.DecreaseHunger(0.1f); // Yürüme ile açlık seviyesini azalt
-            playerStats.DecreaseThirst(0.1f); // Yürüme ile susuzluk seviyesini azalt !!!!!!!!!!!!!!!!! Açlık SUSUZLUK*/
+            playerStats.DecreaseHunger(0.005f); // Yürüme ile açlık seviyesini azalt
+            playerStats.DecreaseThirst(0.005f); // Yürüme ile susuzluk seviyesini azalt
 
             this.GetComponent<Animator>().SetBool("isRight", true);
             this.GetComponent<Animator>().SetBool("isGrounded", true);
@@ -116,10 +117,10 @@ public class CharacterMovement : MonoBehaviour
         }
 
         //back
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKey(KeyCode.S))
         {
-            /* playerStats.DecreaseHunger(0.1f); // Yürüme ile açlık seviyesini azalt
-            playerStats.DecreaseThirst(0.1f); // Yürüme ile susuzluk seviyesini azalt !!!!!!!!!!!!!!!!! Açlık SUSUZLUK*/
+            playerStats.DecreaseHunger(0.005f); // Yürüme ile açlık seviyesini azalt
+            playerStats.DecreaseThirst(0.005f); // Yürüme ile susuzluk seviyesini azalt
 
             this.GetComponent<Animator>().SetBool("isBack", true);
             this.GetComponent<Animator>().SetBool("isGrounded", true);
@@ -133,7 +134,7 @@ public class CharacterMovement : MonoBehaviour
     private void DoSprint()
     {
         Jump();
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             //isRunning = true;
             this.GetComponent<Animator>().SetBool("isRunning", true);
@@ -141,8 +142,8 @@ public class CharacterMovement : MonoBehaviour
             DOTween.To(() => speed, x => speed = x, runSpeed, 3); // speed degerimi 3 saniye icinde runspeed degerine esitle.
             cam.DOFieldOfView(90, 3);
 
-    /*         playerStats.DecreaseHunger(0.2f); // Sprint ile açlık seviyesini daha hızlı azalt
-            playerStats.DecreaseThirst(0.2f); // Sprint ile susuzluk seviyesini daha hızlı azalt    !!!!!!!!!!!!!!!!!!!!! Açlık Susuzluk*/         
+            playerStats.DecreaseHunger(0.02f); // Yürüme ile açlık seviyesini azalt
+            playerStats.DecreaseThirst(0.02f); // Yürüme ile susuzluk seviyesini azalt         
 
             //Jump();
         }
@@ -210,27 +211,30 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
-    private void UpdateStatusUI()
+        private void UpdateStatusUI()
     {
-    if (statusPanel != null)
-    {
-        Text hungerText = statusPanel.transform.Find("HungerText").GetComponent<Text>();
-        if (hungerText != null)
+        if (panel != null)
         {
-            hungerText.text = "Hunger: " + playerStats.hunger.ToString();
-        }
+            Text hungerText = panel.transform.Find("HungerText").GetComponent<Text>();
+            if (hungerText != null)
+            {
+                hungerText.text = "Hunger: " + playerStats.hunger.ToString("f0");
+            }
 
-        Text thirstText = statusPanel.transform.Find("ThirstText").GetComponent<Text>();
-        if (thirstText != null)
-        {
-            thirstText.text = "Thirst: " + playerStats.thirst.ToString();
+            Text thirstText = panel.transform.Find("ThirstText").GetComponent<Text>();
+            if (thirstText != null)
+            {
+                thirstText.text = "Thirst: " + playerStats.thirst.ToString("f0");
+            }
+
+            Text sanityText = panel.transform.Find("SanityText").GetComponent<Text>();
+            if (sanityText != null)
+            {
+                sanityText.text = "Sanity: " + playerStats.sanity.ToString("f0");
+                //Debug.Log("Sanity: " + playerStats.sanity.ToString()); // Akıl sağlığı değerini konsola yazdır
+            }
         }
     }
-    }
-
-
-
-
 }
 
 

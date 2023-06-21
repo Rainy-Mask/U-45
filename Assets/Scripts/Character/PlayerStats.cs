@@ -66,25 +66,31 @@ public class PlayerStats : MonoBehaviour
 
     public void DecreaseHunger(float amount)
     {
-    hunger -= amount;
-    hunger = Mathf.Clamp(hunger, 0f, 100f);
-    UpdateHungerUI();
+        hunger -= amount;
+        hunger = Mathf.Clamp(hunger, 0f, 100f);
+        
     }
 
     public void DecreaseThirst(float amount)
     {
         thirst -= amount;
         thirst = Mathf.Clamp(thirst, 0f, 100f);
-        UpdateThirstUI();
+        
     }
 
-    private void UpdateHungerUI()
+    public void DecreaseSanity(float value)
+    {
+        sanity -= value;
+        sanity = Mathf.Clamp(sanity, 0f, 100f); // Akıl sağlığını 0 ile 100 arasında tut
+    }
+
+/*     private void UpdateHungerUI()
     {
         GameObject hungerTextObj = GameObject.Find("HungerText");
         if (hungerTextObj != null)
         {
             Text hungerText = hungerTextObj.GetComponent<Text>();
-            hungerText.text = "Hunger: " + hunger.ToString();
+            hungerText.text = "Hunger: " + hunger.ToString("f0");
         }
     }
 
@@ -94,8 +100,18 @@ public class PlayerStats : MonoBehaviour
         if (thirstTextObj != null)
         {
             Text thirstText = thirstTextObj.GetComponent<Text>();
-            thirstText.text = "Thirst: " + thirst.ToString();
+            thirstText.text = "Thirst: " + thirst.ToString("f0");
         }
     }
 
+    private void UpdateSanityUI()
+    {
+        GameObject sanityTextObj = GameObject.Find("SanityText");
+        if (sanityTextObj != null)
+        {
+            Text sanityText = sanityTextObj.GetComponent<Text>();
+            sanityText.text = "Sanity: " + sanity.ToString();
+        }
+    }
+ */
 }

@@ -4,8 +4,8 @@ public class MouseLook : MonoBehaviour
 {
     public float sensitivity = 100f;
     public Transform body;
-    public float jumpCameraOffset = 1.5f; // Zıplama animasyonunda kamera yukarı kaydırma miktarı
-    public float cameraResetSpeed = 1.9f; // Kamera resetleme hızı
+    public float jumpCameraOffset = 1.9f; // Zıplama animasyonunda kamera yukarı kaydırma miktarı
+    public float cameraResetSpeed = 2.0f; // Kamera resetleme hızı
 
     private float xRot = 0;
     private float originalCameraHeight;
