@@ -1,3 +1,4 @@
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +17,22 @@ public class PlayerStats : MonoBehaviour
         thirst = 100f;
         sanity = 100f;
         weightCapacity = 100f;
+
+        if (PlayerPrefs.HasKey("hunger"))//Oyun başladıktan sonra daha öncesinde kaydedilmiş mi onu kontrol ediyor .Kayededilmiş ise o andaki değerleri atıyor.
+        {
+            hunger = PlayerPrefs.GetFloat("hunger");
+            thirst = PlayerPrefs.GetFloat("thirst");
+            sanity = PlayerPrefs.GetFloat("sanity");
+            weightCapacity = PlayerPrefs.GetFloat("weightCapasity");
+        }
+    }
+
+    public void SaveStats()//Karakter statlaini kaydetmeye yarar
+    {
+        PlayerPrefs.SetFloat("hunger", hunger);
+        PlayerPrefs.SetFloat("thirst", thirst);
+        PlayerPrefs.SetFloat("sanity", sanity);
+        PlayerPrefs.SetFloat("weightCapasity", weightCapacity);
     }
 
     private void Update()

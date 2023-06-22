@@ -42,9 +42,25 @@ public class CharacterMovement : MonoBehaviour
         playerStats = GetComponent<PlayerStats>();
         panel = GameObject.Find("statusPanel");
 
+        if (PlayerPrefs.HasKey("XPos")) //Oyun başladıktan sonra daha öncesinde kaydedilmiş mi onu kontrol ediyor .Kayededilmiş ise o değerleri yeni pozisyonumuz yapıyor
+        {
+            float XPos = PlayerPrefs.GetFloat("XPos");
+            float YPos = PlayerPrefs.GetFloat("YPos");
+            float ZPos = PlayerPrefs.GetFloat("ZPos");
+
+            transform.position = new Vector3(XPos, YPos, ZPos);
+        }
     }
 
-        private void Update()
+    public void SavePos() //Karakterin pozisyonlarını kaydetmeye yarar
+    {
+        PlayerPrefs.SetFloat("XPos", transform.position.x);
+        PlayerPrefs.SetFloat("YPos", transform.position.y);
+        PlayerPrefs.SetFloat("ZPos", transform.position.z);
+
+    }
+
+    private void Update()
     {
         if (!mainInventory.activeSelf) // Sadece envanter kapalıyken karakterin hareketini kontrol et
         {
