@@ -8,15 +8,28 @@ public class MouseLook : MonoBehaviour
     public float cameraResetSpeed = 2.0f; // Kamera resetleme hızı
 
     private float xRot = 0;
+    private float yRot = 0;
     private float originalCameraHeight;
     private bool isJumping = false;
     private CharacterMovement characterMovement;
+    private CharacterEffects characterEffects;
 
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         originalCameraHeight = transform.localPosition.y; // Kameranın orijinal yüksekliği
-        characterMovement = FindObjectOfType<CharacterMovement>();
+        characterMovement = body.GetComponent<CharacterMovement>();
+        characterEffects = body.GetComponent<CharacterEffects>();
+
+        if (characterMovement == null)
+        {
+            Debug.LogError("CharacterMovement component not found on the body!");
+        }
+
+        if (characterEffects == null)
+        {
+            Debug.LogError("CharacterEffects component not found on the body!");
+        }
     }
 
     private void Update()
@@ -25,10 +38,21 @@ public class MouseLook : MonoBehaviour
         float ver = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
 
         xRot -= ver;
+        yRot += hor;
+
         xRot = Mathf.Clamp(xRot, -90f, 90f);
 
+        // Baş dönmesi aktifken y ekseni dönüşünü de uygula
+        if (characterEffects.IsDizzy)
+        {
+            body.rotation = Quaternion.Euler(0, yRot, 0);
+        }
+        else
+        {
+            body.Rotate(Vector3.up * hor);
+        }
+
         transform.localRotation = Quaternion.Euler(xRot, 0, 0);
-        body.Rotate(Vector3.up * hor);
 
         if (Input.GetButtonDown("Jump") && characterMovement.isGrounded)
         {

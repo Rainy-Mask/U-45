@@ -5,7 +5,9 @@ public class CharacterMovement : MonoBehaviour
 {
     // character movement
     private CharacterController characterController;
-    [SerializeField] private float speed;
+    [SerializeField] public float speed;
+
+    [SerializeField] private CharacterEffects characterEffects;
 
     // character gravity
     private float gravity = -9.8f;
@@ -36,10 +38,9 @@ public class CharacterMovement : MonoBehaviour
         walkSpeed = speed;
         cam = Camera.main;  
         characterController = GetComponent<CharacterController>();
+        characterEffects = GetComponent<CharacterEffects>();
         playerStats = GetComponent<PlayerStats>();
         panel = GameObject.Find("statusPanel");
-        
-        
 
     }
 
