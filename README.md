@@ -79,12 +79,13 @@ Alınan kararlar:
 - **Sprint içinde tamamlanması tahmin edilen puan**: 100 Puan
 - **Puan tamamlama mantığı**: Toplamda proje boyunca tamamlanması gereken 190 puanlık backlog bulunmaktadır. 2. Sprintte toplam 160 Puan'a ulaşmamız gerektiğine karar verildi.
 - **Daily Scrum**: Daily Scrum toplantılarımızın hepsinin Discord ve WhatsApp üzerinden yapılmasına karar verilmiştir. Daily Scrum toplantısı örneği jpeg olarak Readme'de tarafımızdan paylaşılmaktadır.
-  ![trello1](https://github.com/Rainy-Mask/U-45/assets/107516137/d0d7601b-ce5b-4e5d-b9b5-c1a3dfdd1433)
+  ![image](https://github.com/Rainy-Mask/U-45/assets/107516137/6a7228eb-939d-4c94-96d5-fd6d692fdf1d)
   ![figma2](https://github.com/Rainy-Mask/U-45/assets/107516137/2e023ee5-b571-4d64-8c50-5ea62a7b5b5e)
 
 - **Ürün Durumu**: Ekran görüntüleri:
   ![ud2](https://github.com/Rainy-Mask/U-45/assets/107516137/85caf693-4526-4ce2-9944-25f74582df59)
-  ![image](https://github.com/Rainy-Mask/U-45/assets/107516137/24b7440f-198d-4678-9b82-d8ad63509e05)
+  ![image](https://github.com/Rainy-Mask/U-45/assets/107516137/6a38ad67-4018-4dac-81f3-db970d11c0f6)
+
 
 
 
