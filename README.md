@@ -1,4 +1,4 @@
-![U-45-4](https://github.com/Rainy-Mask/U-45/assets/110540754/66bb12c3-e312-49cd-87c0-21bcde55b2c0)# **Takım İsmi**
+**Takım İsmi**
 
 **Takım Adı :** Bibilabub
 
