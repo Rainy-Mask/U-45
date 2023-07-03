@@ -107,6 +107,15 @@ Alınan kararlar:
 
 - **Sprint Review Katılımcıları** : Yiğit Bozbay, Cemre Uysal, Ahmet Melih Kara, Furkan Korkmazgöz, Emine Ecem Nayir.
 
+- **Sprint Notları**: 
+  - UI tasarımlarına giriş yapıldı. (Ayarlar/Ana Menü)
+  - Oyun içi minigame'ler yapıldı.
+  - Envanter sistemi iyileştirildi.
+  - Save/Load sistemi eklendi.
+  - Karakter tasarımı iyileştirildi.
+  - Oyun içi itemler iyileştirdi ve biraz detaylandırıldı.
+  - Karakterin açlık/susuzluk/akıl sağlığı gibi özellikleri iyileştirildi.
+
 - **Sprint Retrospective** : Toplantıda aldığımız kararlar aşağıda belirtilmiştir.
 
   - Günlük toplantılar yapılacak: Ekipçe buluşmaların takımı motive ettiğine karar verildi ve bu sebeple günlük toplantı saatleri belirlendi. Herkesin toplantı saatlerinde yaptığı şeyleri birbirine anlatması istenildi. Yapılanlar hakkında görüş alışverişi yapılmasının güzel olacağına karar verildi. Bu sayede takım içi iletişim ve işbirliği güçlenecektir.
