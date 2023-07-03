@@ -92,7 +92,7 @@ Alınan kararlar:
 - **Sprint Review**: 
 Alınan kararlar:
   - Yavaş geçen bir sprint dönemi geçirildi ve bunun sebepleri çözümleri konuşuldu, önümüzdeki sprintte hızlanma kararı alındı.
-  - 2. Sprint dönemi içinde yaşanılan ve karşılaşılan yeni sorunlar ve bunların çözüm yolları üzerine konuşuldu.
+  - Sprint dönemi içinde yaşanılan ve karşılaşılan yeni sorunlar ve bunların çözüm yolları üzerine konuşuldu.
   - Oyunun sistemleri ve içereceği minigame'lere karar verildi, minigame'ler üzerinde çalışmaya başlandı. Takvime uygun şekilde görevler zamanında bitirildi. Görevler paylaşıldı. Toplantıların saatleri ve günleri belirlendi.
   - Ekipteki üyelerin çalışma süreleri ve rolleri gözden geçirildi, bütün ekip rollerinden ve çalışmalarından memnun olduğunu belirtti. Yeni sprint döneminde rollerde herhangi bir değişilikliğe gidilmeyecek.
 
