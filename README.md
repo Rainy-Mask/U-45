@@ -1,4 +1,4 @@
-# **Takım İsmi**
+![U-45-4](https://github.com/Rainy-Mask/U-45/assets/110540754/66bb12c3-e312-49cd-87c0-21bcde55b2c0)# **Takım İsmi**
 
 **Takım Adı :** Bibilabub
 
@@ -82,6 +82,12 @@ Alınan kararlar:
   ![image](https://github.com/Rainy-Mask/U-45/assets/107516137/6a7228eb-939d-4c94-96d5-fd6d692fdf1d)
   ![figma2](https://github.com/Rainy-Mask/U-45/assets/107516137/2e023ee5-b571-4d64-8c50-5ea62a7b5b5e)
   ![WhatsApp Image 2023-06-27 at 12 27 25](https://github.com/Rainy-Mask/U-45/assets/110540754/4df7c13f-a5db-4b8c-9dbb-68038f631e97)
+  ![WhatsApp Image 2023-06-27 at 12 23 44](https://github.com/Rainy-Mask/U-45/assets/110540754/af5f44b6-d2df-4427-a443-41f6b9450844)
+  ![U-45-3](https://github.com/Rainy-Mask/U-45/assets/110540754/c8296fe1-5175-4d6e-9c6d-9df0a7a4e2df)
+  ![U-45-4](https://github.com/Rainy-Mask/U-45/assets/110540754/7c747b37-2ddc-4622-8e08-0f0cf8a8b0e2)
+
+
+
 
 
 
