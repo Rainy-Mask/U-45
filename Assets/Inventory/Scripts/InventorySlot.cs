@@ -8,10 +8,12 @@ public class InventorySlot : MonoBehaviour, IDropHandler
 {
     public Image image;
     public Color selectedColor, deselectedColor;
+    InventoryItem inventoryItem;
 
     private void Awake()
     {
         Deselect();
+        inventoryItem = GetComponent<InventoryItem>();
     }
 
     public void Select()

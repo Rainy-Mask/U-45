@@ -10,7 +10,7 @@ public class InventoryManager : MonoBehaviour
     public Transform MainCharTransform;
     
     int selectedSlot = -1;
-   
+    int oldSelectedSlot = -1;
 
     private void Start()
     {
@@ -34,9 +34,27 @@ public class InventoryManager : MonoBehaviour
             inventorySlots[selectedSlot].Deselect();
 
         inventorySlots[newValue].Select();
+        oldSelectedSlot = selectedSlot;
         selectedSlot = newValue;
+        ShowDescription();
+        HideDescription();
+    }
+    void HideDescription()
+    {
+        if (oldSelectedSlot != -1)
+        {
+            InventoryItem itemInSlot = inventorySlots[oldSelectedSlot].GetComponentInChildren<InventoryItem>();
+            if (itemInSlot != null)
+                itemInSlot.Hide();
+        }
     }
 
+    void ShowDescription()
+    {
+        InventoryItem itemInSlot = inventorySlots[selectedSlot].GetComponentInChildren<InventoryItem>();
+        if (itemInSlot != null)
+            itemInSlot.Show();
+    }
     public bool AddItem(Item item)
     {
         for (int i = 0; i < inventorySlots.Length; i++)
