@@ -71,7 +71,37 @@ Alınan kararlar:
   - Takımda birbirinin görevlerine destek olunacak: Kendi üstümüze düşen görevleri bitirdiğimizde diğer arkadaşlarımızın görevlerine destek olmaya çalışılacak. Ortak şekilde görevler üstlenip daha hızlı ve sağlıklı şekilde bitirilecek.
 
 
- 
-
-
 ---
+
+
+# Sprint 2
+
+- **Sprint içinde tamamlanması tahmin edilen puan**: 100 Puan
+- **Puan tamamlama mantığı**: Toplamda proje boyunca tamamlanması gereken 190 puanlık backlog bulunmaktadır. 2. Sprintte toplam 160 Puan'a ulaşmamız gerektiğine karar verildi.
+- **Daily Scrum**: Daily Scrum toplantılarımızın hepsinin Discord ve WhatsApp üzerinden yapılmasına karar verilmiştir. Daily Scrum toplantısı örneği jpeg olarak Readme'de tarafımızdan paylaşılmaktadır.
+  ![image](https://github.com/Rainy-Mask/U-45/assets/107516137/6a7228eb-939d-4c94-96d5-fd6d692fdf1d)
+  ![figma2](https://github.com/Rainy-Mask/U-45/assets/107516137/2e023ee5-b571-4d64-8c50-5ea62a7b5b5e)
+
+- **Ürün Durumu**: Ekran görüntüleri:
+  ![ud2](https://github.com/Rainy-Mask/U-45/assets/107516137/85caf693-4526-4ce2-9944-25f74582df59)
+  ![image](https://github.com/Rainy-Mask/U-45/assets/107516137/6a38ad67-4018-4dac-81f3-db970d11c0f6)
+
+
+
+
+- **Sprint Review**: 
+Alınan kararlar:
+  - Yavaş geçen bir sprint dönemi geçirildi ve bunun sebepleri çözümleri konuşuldu, önümüzdeki sprintte hızlanma kararı alındı.
+  - Sprint dönemi içinde yaşanılan ve karşılaşılan yeni sorunlar ve bunların çözüm yolları üzerine konuşuldu.
+  - Oyunun sistemleri ve içereceği minigame'lere karar verildi, minigame'ler üzerinde çalışmaya başlandı. Takvime uygun şekilde görevler zamanında bitirildi. Görevler paylaşıldı. Toplantıların saatleri ve günleri belirlendi.
+  - Ekipteki üyelerin çalışma süreleri ve rolleri gözden geçirildi, bütün ekip rollerinden ve çalışmalarından memnun olduğunu belirtti. Yeni sprint döneminde rollerde herhangi bir değişilikliğe gidilmeyecek.
+
+- **Sprint Review Katılımcıları** : Yiğit Bozbay, Cemre Uysal, Ahmet Melih Kara, Furkan Korkmazgöz, Emine Ecem Nayir.
+
+- **Sprint Retrospective** : Toplantıda aldığımız kararlar aşağıda belirtilmiştir.
+
+  - Günlük toplantılar yapılacak: Ekipçe buluşmaların takımı motive ettiğine karar verildi ve bu sebeple günlük toplantı saatleri belirlendi. Herkesin toplantı saatlerinde yaptığı şeyleri birbirine anlatması istenildi. Yapılanlar hakkında görüş alışverişi yapılmasının güzel olacağına karar verildi. Bu sayede takım içi iletişim ve işbirliği güçlenecektir.
+  - Takım üyelerinin gelecek sprintlerde daha fazla aktif olması gerektiğine vurgu yapılmıştır.
+  - Takımda birbirinin görevlerine destek olunacak: Kendi üstümüze düşen görevleri bitirdiğimizde diğer arkadaşlarımızın görevlerine destek olmaya çalışılacak. Ortak şekilde görevler üstlenip daha hızlı ve sağlıklı şekilde bitirilecek.
+  - Oyunun tasarım ve modelleme kısmına daha da yüklenilecek.
+
