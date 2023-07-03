@@ -81,7 +81,8 @@ Alınan kararlar:
 - **Daily Scrum**: Daily Scrum toplantılarımızın hepsinin Discord ve WhatsApp üzerinden yapılmasına karar verilmiştir. Daily Scrum toplantısı örneği jpeg olarak Readme'de tarafımızdan paylaşılmaktadır.
   ![image](https://github.com/Rainy-Mask/U-45/assets/107516137/6a7228eb-939d-4c94-96d5-fd6d692fdf1d)
   ![figma2](https://github.com/Rainy-Mask/U-45/assets/107516137/2e023ee5-b571-4d64-8c50-5ea62a7b5b5e)
-  ![image](https://github.com/Rainy-Mask/U-45/assets/110540754/9dd7f8a4-ff9e-4490-af76-8afb204b9614)
+  ![WhatsApp Image 2023-06-27 at 12 27 25](https://github.com/Rainy-Mask/U-45/assets/110540754/4df7c13f-a5db-4b8c-9dbb-68038f631e97)
+
 
 
 - **Ürün Durumu**: Ekran görüntüleri:
