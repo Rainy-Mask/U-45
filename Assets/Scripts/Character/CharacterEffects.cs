@@ -6,6 +6,7 @@ public class CharacterEffects : MonoBehaviour
 {
     [SerializeField] private PlayerStats playerStats;
     [SerializeField] private CharacterMovement characterMovement;
+    [SerializeField] private CharacterMusic characterMusic;
 
     [SerializeField] private float hungerThreshold = 25f;
     [SerializeField] private float thirstThreshold = 30f;
@@ -13,11 +14,13 @@ public class CharacterEffects : MonoBehaviour
 
     private float originalSpeed;
     private Coroutine dizzyCoroutine;
+    private float mentalHealthIncreaseRate = 1f; // Akıl sağlığı artış hızı
 
     private void Start()
     {
         playerStats = GetComponent<PlayerStats>();
         characterMovement = GetComponent<CharacterMovement>();
+        characterMusic = GetComponent<CharacterMusic>();
 
         if (playerStats == null)
         {
@@ -27,7 +30,7 @@ public class CharacterEffects : MonoBehaviour
         //originalSpeed = characterMovement.speed;
     }
 
-    private void Update()
+        private void Update()
     {
         if (playerStats.hunger < hungerThreshold || playerStats.thirst < thirstThreshold)
         {
@@ -49,7 +52,38 @@ public class CharacterEffects : MonoBehaviour
                 IsDizzy = false;
             }
         }
+
+        if (characterMusic != null && characterMusic.IsMusicPlaying)
+        {
+            IncreaseMentalHealth();
+        }
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            if (characterMusic != null)
+            {
+                if (!characterMusic.IsMusicPlaying)
+                {
+                    characterMusic.PlayNextMusic();
+                }
+                else
+                {
+                    characterMusic.StopMusic();
+                }
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            if (characterMusic != null && characterMusic.IsMusicPlaying)
+            {
+                characterMusic.StopMusic();
+            }
+        }
     }
+
+
+
 
     private void ApplyEffects()
     {
@@ -100,4 +134,17 @@ public class CharacterEffects : MonoBehaviour
 
         IsDizzy = false;
     }
+
+        private void IncreaseMentalHealth()
+    {
+        const float mentalHealthIncreaseAmount = 1f; // Artırma miktarı
+
+        // Akıl sağlığı seviyesini artır
+        playerStats.sanity += mentalHealthIncreaseAmount * Time.deltaTime;
+        playerStats.sanity = Mathf.Clamp(playerStats.sanity, 0f, 100f); // Akıl sağlığını 0 ile 100 arasında tut
+    }
+
+
+
+
 }

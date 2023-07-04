@@ -905,6 +905,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStats: {fileID: 0}
   characterMovement: {fileID: 0}
+  characterMusic: {fileID: 0}
   hungerThreshold: 25
   thirstThreshold: 30
   dizzinessDuration: 0.5
@@ -1000,6 +1001,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStats: {fileID: 0}
   characterMovement: {fileID: 0}
+  characterMusic: {fileID: 0}
   hungerThreshold: 25
   thirstThreshold: 30
   dizzinessDuration: 1
@@ -1016,6 +1018,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ffe42666484f9d44b7bd2e7bc76b256, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1399593708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399593673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b4ecf1c299b2ed42907895a81c57f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicList:
+  - {fileID: 8300000, guid: 0a566074d6d56f54e980a09c53abf613, type: 3}
+  - {fileID: 8300000, guid: 189730180bfeb054cbfbea963f1ce46a, type: 3}
+  - {fileID: 8300000, guid: 00d5b22bf0e06f84abe74f0b8d39915a, type: 3}
+  - {fileID: 8300000, guid: b9d57a0c7d2636f4cb08724e886a9847, type: 3}
+  - {fileID: 8300000, guid: bbf1307c53dd1da499d4f4b77971fa23, type: 3}
 --- !u!1 &1421687565
 GameObject:
   m_ObjectHideFlags: 0
