@@ -48,4 +48,17 @@ public class DemoScript : MonoBehaviour
             Debug.Log("Not recieved");
         }
     }
+
+    public void UseItem()
+    {
+        Item recievedItem = inventoryManager.UseItem();
+        if (recievedItem != null)
+        {
+            Debug.Log("Used item : " + recievedItem + " " + recievedItem.description);
+        }
+        else
+        {
+            Debug.Log("Not recieved");
+        }
+    }
 }

@@ -12,6 +12,7 @@ public class Item : ScriptableObject
     public bool stackable;
     public GameObject itemPrefab;
     public int count;
+    public float weight;
 }
 
 public enum ItemType {

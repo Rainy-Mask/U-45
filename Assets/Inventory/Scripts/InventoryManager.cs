@@ -8,7 +8,10 @@ public class InventoryManager : MonoBehaviour
     public InventorySlot[] inventorySlots;
     public GameObject inventoryItemPrefab;
     public Transform MainCharTransform;
-    
+    public PlayerStats playerStats;
+    public Food[] foods;
+    public Medicine[] medicines;
+
     int selectedSlot = -1;
     int oldSelectedSlot = -1;
 
@@ -39,6 +42,9 @@ public class InventoryManager : MonoBehaviour
         ShowDescription();
         HideDescription();
     }
+
+
+
     void HideDescription()
     {
         if (oldSelectedSlot != -1)
@@ -63,6 +69,7 @@ public class InventoryManager : MonoBehaviour
             InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
             if (itemInSlot != null && itemInSlot.item == item && itemInSlot.count < 4 && item.stackable == true)
             {
+                playerStats.IncreaseWeightCapasity(item.weight);
                 itemInSlot.count++;
                 itemInSlot.RefreshCount();
                 return true;
@@ -76,6 +83,7 @@ public class InventoryManager : MonoBehaviour
             if (itemInSlot == null)
             {
                 SpawnItem(item, slot);
+                playerStats.IncreaseWeightCapasity(item.weight);
                 return true;
             }
         }
@@ -86,22 +94,22 @@ public class InventoryManager : MonoBehaviour
         GameObject newItemGO = Instantiate(inventoryItemPrefab, slot.transform);
         InventoryItem invItem = newItemGO.GetComponent<InventoryItem>();
         invItem.InitializeItem(item);
-    } 
+    }
     public void SpawnItem(GameObject itemPrefab) // Item drop kismi icin olusturuldu ama daha bitmedi
     {
         Vector3 spawnPosition = MainCharTransform.position + new Vector3(0f, 0f, 3f);
-        GameObject newItemGO = Instantiate(itemPrefab , spawnPosition , Quaternion.identity);
+        GameObject newItemGO = Instantiate(itemPrefab, spawnPosition, Quaternion.identity);
     }
-    
+
     public Item DeleteItem()
     {
         InventorySlot slot = inventorySlots[selectedSlot];
         InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
-        if(itemInSlot != null)
+        if (itemInSlot != null)
         {
             Item item = itemInSlot.item;
             itemInSlot.count--;
-            if(itemInSlot.count <= 0)
+            if (itemInSlot.count <= 0)
             {
                 Destroy(itemInSlot.gameObject);
             }
@@ -111,8 +119,8 @@ public class InventoryManager : MonoBehaviour
             }
             return item;
         }
-        return null;    
-    } 
+        return null;
+    }
     public Item DropItem() // Envanterdeki itemleri disariya atmak icin olusturuldu.
     {
         InventorySlot slot = inventorySlots[selectedSlot];
@@ -135,5 +143,73 @@ public class InventoryManager : MonoBehaviour
         return null;
     }
 
-   
+    public Item UseItem()
+    {
+        InventorySlot slot = inventorySlots[selectedSlot];
+        InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+        
+        if (itemInSlot != null)
+        {
+            Item item = itemInSlot.item;
+            itemInSlot.count--;
+            if (item.name == "Arveles")
+            {
+                playerStats.IncreaseThirst(medicines[0].thirst);
+                playerStats.DecreaseWeightCapasity(medicines[0].weight);
+                //playerStats.IncreaseHealth(medicines[0].health);  Bu kýsým þuanlýk eklenmedi
+            }
+            else if (item.name == "Apple")
+            {
+                //playerStats.IncreaseHealth(foods[0].health);  Bu kýsým þuanlýk eklenmedi
+                playerStats.IncreaseHunger(foods[0].hunger);
+                playerStats.IncreaseThirst(foods[0].thirst);
+                playerStats.DecreaseWeightCapasity(foods[0].weight);
+            }
+
+            if (itemInSlot.count <= 0)
+            {
+                Destroy(itemInSlot.gameObject);
+            }
+            else
+            {
+                itemInSlot.RefreshCount();
+            }
+            return item;
+        }
+        return null;
+        /*
+        InventorySlot slot = inventorySlots[selectedSlot];
+        InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+        PlayerStats playerStats = GetComponent<PlayerStats>();
+        if (itemInSlot != null)
+        {
+            Item item = itemInSlot.item;
+            itemInSlot.count--;
+            
+            if(item.name == "Arveles")
+            {
+                Debug.Log("Name ARVELES");
+                Medicine medicine = GetComponent<Medicine>();
+                playerStats.IncreaseHunger(medicine.health);
+            }
+            else if(item.name == "Apple")
+            {
+                Debug.Log("Name APPLE");
+                Food food = GetComponent<Food>();
+                playerStats.IncreaseHunger(food.health);
+            }
+
+            if (itemInSlot.count <= 0)
+            {
+                Destroy(itemInSlot.gameObject);
+            }
+            else
+            {
+                itemInSlot.RefreshCount();
+            }
+            return item;
+        }
+        return null;
+        */
+    }
 }
