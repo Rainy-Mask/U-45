@@ -101,34 +101,63 @@ public class PlayerStats : MonoBehaviour
         sanity = Mathf.Clamp(sanity, 0f, 100f); // Akıl sağlığını 0 ile 100 arasında tut
     }
 
-/*     private void UpdateHungerUI()
+    public void DecreaseWeightCapasity(float amaount)
     {
-        GameObject hungerTextObj = GameObject.Find("HungerText");
-        if (hungerTextObj != null)
-        {
-            Text hungerText = hungerTextObj.GetComponent<Text>();
-            hungerText.text = "Hunger: " + hunger.ToString("f0");
-        }
+
+        weightCapacity -= amaount;
+        weightCapacity = Mathf.Clamp(weightCapacity, 0f, 200f);
     }
 
-    private void UpdateThirstUI()
+    public void IncreaseHunger(float amaount)
     {
-        GameObject thirstTextObj = GameObject.Find("ThirstText");
-        if (thirstTextObj != null)
-        {
-            Text thirstText = thirstTextObj.GetComponent<Text>();
-            thirstText.text = "Thirst: " + thirst.ToString("f0");
-        }
+        
+        hunger += amaount;
+        hunger = Mathf.Clamp(hunger, 0f, 100f);
+    }
+    public void IncreaseThirst(float amaount)
+    {
+        
+        thirst += amaount;
+        thirst = Mathf.Clamp(thirst, 0f, 100f);
     }
 
-    private void UpdateSanityUI()
+    public void IncreaseWeightCapasity(float amaount)
     {
-        GameObject sanityTextObj = GameObject.Find("SanityText");
-        if (sanityTextObj != null)
-        {
-            Text sanityText = sanityTextObj.GetComponent<Text>();
-            sanityText.text = "Sanity: " + sanity.ToString();
-        }
+
+        weightCapacity += amaount;
+        weightCapacity = Mathf.Clamp(weightCapacity, 0f, 200f);
+        Debug.Log("TAŞIMA KAPASİTESİ : " + weightCapacity); // kaldır bunu sonradan test amaçlı :)
     }
- */
+
+
+    /*     private void UpdateHungerUI()
+        {
+            GameObject hungerTextObj = GameObject.Find("HungerText");
+            if (hungerTextObj != null)
+            {
+                Text hungerText = hungerTextObj.GetComponent<Text>();
+                hungerText.text = "Hunger: " + hunger.ToString("f0");
+            }
+        }
+
+        private void UpdateThirstUI()
+        {
+            GameObject thirstTextObj = GameObject.Find("ThirstText");
+            if (thirstTextObj != null)
+            {
+                Text thirstText = thirstTextObj.GetComponent<Text>();
+                thirstText.text = "Thirst: " + thirst.ToString("f0");
+            }
+        }
+
+        private void UpdateSanityUI()
+        {
+            GameObject sanityTextObj = GameObject.Find("SanityText");
+            if (sanityTextObj != null)
+            {
+                Text sanityText = sanityTextObj.GetComponent<Text>();
+                sanityText.text = "Sanity: " + sanity.ToString();
+            }
+        }
+     */
 }

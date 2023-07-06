@@ -18,5 +18,7 @@ MonoBehaviour:
   type: 0
   stackable: 1
   itemPrefab: {fileID: 504944321641251298, guid: 7af4dff798fc5fa4b91d3ae90410186e, type: 3}
-  count: 1
+  count: 2
+  weight: 25
   health: 20
+  thirst: -5
