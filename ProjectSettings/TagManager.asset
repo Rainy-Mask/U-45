@@ -8,6 +8,18 @@ TagManager:
   - Medic
   - Food
   - Flashlight
+  - song
+  - firstText
+  - text
+  - text2
+  - text3
+  - text4
+  - text5
+  - text6
+  - text7
+  - end
+  - npc_1
+  - npc_2
   layers:
   - Default
   - TransparentFX
@@ -17,7 +29,7 @@ TagManager:
   - UI
   - Ground
   - Item
-  - 
+  - Road
   - 
   - 
   - 
