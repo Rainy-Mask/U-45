@@ -12,6 +12,16 @@ public class MenuController : MonoBehaviour
    [SerializeField] private TMP_Text volumeTextValue = null;
    [SerializeField] private Slider volumeSlider = null;
    [SerializeField] private float defaultVolume = 1.0f;
+
+   [Header("Gameplay Settings")] 
+   [SerializeField] private TMP_Text ControllerSenTextValue = null;
+   [SerializeField] private Slider controllerSenSlider = null;
+   [SerializeField] private int defaultSen = 4;
+   public int mainControllerSen = 4;
+
+   [Header("Toggle Settings")] 
+   [SerializeField] private Toggle invertYToggle = null;
+   
    
    [Header("Confirmation")] 
    [SerializeField] private GameObject confirmationPrompt = null;
@@ -57,7 +67,30 @@ public class MenuController : MonoBehaviour
    public void VolumeApply()
    {
       PlayerPrefs.SetFloat("masterVolume" , AudioListener.volume);
-      //Show Prompt
+      //Show Prompt  
+      StartCoroutine(ConfirmationBox());
+   }
+
+   public void SetControllerSen(float sensitivity)  //slider 
+   {
+      mainControllerSen = Mathf.RoundToInt(sensitivity); // yuvarlama işlemi için
+      ControllerSenTextValue.text = sensitivity.ToString("0");
+   }
+
+   public void GameplayApply() //Toggle
+   {
+      if (invertYToggle.isOn)
+      {
+         PlayerPrefs.SetInt("masterInvertY", 1); //1 doğru ise 0 yanlıştır
+         //invert Y
+      }
+      else ;
+      {
+         PlayerPrefs.SetInt("masterInvertY",0);
+         //Not invert
+      }
+      
+      PlayerPrefs.SetFloat("masterSen", mainControllerSen);
       StartCoroutine(ConfirmationBox());
    }
 
@@ -69,6 +102,15 @@ public class MenuController : MonoBehaviour
          volumeSlider.value = defaultVolume;
          volumeTextValue.text = defaultVolume.ToString("0.0");
          VolumeApply(); //to save it
+      }
+
+      if (MenuType == "Gameplay")
+      {
+         ControllerSenTextValue.text = defaultSen.ToString("0");
+         controllerSenSlider.value = defaultSen;
+         mainControllerSen = defaultSen;
+         invertYToggle.isOn = false;
+         GameplayApply();
       }
    }
 
