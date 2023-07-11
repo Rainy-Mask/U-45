@@ -8463,10 +8463,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 788217526}
   m_HandleRect: {fileID: 2042123507}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 2
-  m_WholeNumbers: 1
-  m_Value: 0
+  m_MinValue: 0.5
+  m_MaxValue: 1.5
+  m_WholeNumbers: 0
+  m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -12528,9 +12528,13 @@ MonoBehaviour:
   defaultSen: 4
   mainControllerSen: 4
   invertYToggle: {fileID: 1595945087}
+  BrightnessSlider: {fileID: 0}
+  brightnessTextValue: {fileID: 0}
+  defaultBrightness: 1
   confirmationPrompt: {fileID: 914104967}
   _newGameLevel: InventoryDeneme 1
   noSavedGameDialog: {fileID: 1619609292}
+  resolutionDropdown: {fileID: 0}
 --- !u!4 &1837851801
 Transform:
   m_ObjectHideFlags: 0

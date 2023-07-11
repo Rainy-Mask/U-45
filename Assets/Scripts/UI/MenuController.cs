@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.UIElements;
+using Slider = UnityEngine.UI.Slider;
+using Toggle = UnityEngine.UI.Toggle;
 
 public class MenuController : MonoBehaviour
 {
@@ -22,6 +25,15 @@ public class MenuController : MonoBehaviour
    [Header("Toggle Settings")] 
    [SerializeField] private Toggle invertYToggle = null;
    
+   [Header("Graphics Settings")] 
+   [SerializeField] private Slider BrightnessSlider = null;
+   [SerializeField] private TMP_Text brightnessTextValue = null;
+   [SerializeField] private float defaultBrightness = 1;
+
+   private int _qualityLevel;
+   private bool _isFullScreen;
+   private float _brightnessLevel;
+
    
    [Header("Confirmation")] 
    [SerializeField] private GameObject confirmationPrompt = null;
@@ -29,10 +41,40 @@ public class MenuController : MonoBehaviour
    [Header("Levels To Load")] 
    
    public string _newGameLevel;
-
    private string levelToLoad;
-
    [SerializeField] private GameObject noSavedGameDialog = null;
+
+   [Header("Resolution Dropdowns")] 
+   public TMP_Dropdown resolutionDropdown;
+   private Resolution[] resolutions;
+
+   private void Start()
+   {
+      resolutions = Screen.resolutions;
+      resolutionDropdown.ClearOptions(); //get rid of default values
+
+      List<string> options = new List<string>();  //list of options
+
+      int currentResolutionIndex = 0;
+
+      for (int i = 0; i < resolutions.Length; i++) 
+      {
+         string option = resolutions[i].width + " x " + resolutions[i].height; 
+         options.Add(option);
+
+         if (resolutions[i].width == Screen.width && resolutions[i].height == Screen.height)
+         {
+            currentResolutionIndex = i;
+         }
+      }
+   }
+   
+   public void SetResolution(int resolutionIndex)
+   {
+      Resolution resolution = resolutions[resolutionIndex];
+      Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+   }
+   
 
    public void NewGameDialogYes()
    {
@@ -94,6 +136,36 @@ public class MenuController : MonoBehaviour
       StartCoroutine(ConfirmationBox());
    }
 
+   public void SetBrightness(float brightness)
+   {
+      _brightnessLevel = brightness;
+      brightnessTextValue.text = brightness.ToString("0.0");
+   }
+
+   public void SetFullScreen(bool isFullScreen)
+   {
+      _isFullScreen = isFullScreen;
+   }
+
+   public void SetQuality(int qualityIndex)
+   {
+      _qualityLevel = qualityIndex;
+   }
+
+   public void GraphicsApply()
+   {
+      PlayerPrefs.SetFloat("masterBrightness", _brightnessLevel);
+      //Change your brightness with your post processing or whatever it is
+      
+      PlayerPrefs.SetInt("masterQuality", _qualityLevel);
+      QualitySettings.SetQualityLevel(_qualityLevel);
+      
+      PlayerPrefs.SetInt("masterFullscreen", (_isFullScreen ? 1 : 0));
+      Screen.fullScreen = _isFullScreen;
+
+      StartCoroutine(ConfirmationBox());
+   }
+   
    public void ResetButton(string MenuType)
    {
       if (MenuType == "Audio")
