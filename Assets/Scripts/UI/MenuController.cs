@@ -59,7 +59,6 @@ public class MenuController : MonoBehaviour
       resolutionDropdown.ClearOptions(); //get rid of default values
 
       List<string> options = new List<string>();  //list of options
-
       int currentResolutionIndex = 0;
 
       for (int i = 0; i < resolutions.Length; i++) 

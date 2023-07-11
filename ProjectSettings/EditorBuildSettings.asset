@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 350643fba68bc75439da174da4bc2748
   - enabled: 1
+    path: Assets/Flooded_Grounds/Scenes/Scene_A.unity
+    guid: c0d944ca9defd20449bc336e50d75a08
+  - enabled: 1
     path: Assets/Scenes/InventoryDeneme 1.unity
     guid: 60bebcea0eeec9548a9d215c986af2c8
   m_configObjects: {}

@@ -2463,6 +2463,11 @@ GameObject:
   - component: {fileID: 3254270383563975471}
   - component: {fileID: 3254270383563975632}
   - component: {fileID: 3254270383563975633}
+  - component: {fileID: 1399593680}
+  - component: {fileID: 1399593687}
+  - component: {fileID: 1399593699}
+  - component: {fileID: 1399593700}
+  - component: {fileID: 1399593708}
   m_Layer: 0
   m_Name: Remy
   m_TagString: Untagged
@@ -2479,8 +2484,8 @@ Transform:
   m_GameObject: {fileID: 8107185027167169517}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 2.958, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8954255595850198990}
   - {fileID: 5014423676816759942}
@@ -2547,12 +2552,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  characterEffects: {fileID: 1399593700}
   groundPos: {fileID: 8954255596025361849}
   isGrounded: 0
   groundMask:
     serializedVersion: 2
     m_Bits: 64
-  jumpHeight: 5
+  mainInventory: {fileID: 0}
+  jumpHeight: 2
 --- !u!54 &3254270383563975632
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2561,7 +2568,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8107185027167169517}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -2583,6 +2590,94 @@ CapsuleCollider:
   m_Height: 3.7649443
   m_Direction: 1
   m_Center: {x: 0, y: 1.8689984, z: 0}
+--- !u!114 &1399593680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8107185027167169517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eca307c387382cd41b4054759fae499a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  interactDistance: 3
+  interactLayer:
+    serializedVersion: 2
+    m_Bits: 128
+--- !u!114 &1399593687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8107185027167169517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 808c0b17ea7af604f88b13090dc0fcab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryManager: {fileID: 0}
+  itemsToPickup:
+  - {fileID: 11400000, guid: 2f1368441a0bd9e4f913f5b0678dea8b, type: 2}
+  - {fileID: 11400000, guid: 7d01b6009ed58c849883a2a88c30c1c1, type: 2}
+  - {fileID: 11400000, guid: f9fedccf80866b54092e6fd352e8da1b, type: 2}
+--- !u!114 &1399593699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8107185027167169517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e44ddb568c56bcd4faeadd8783ccb188, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hunger: 0
+  thirst: 0
+  sanity: 0
+  weightCapacity: 0
+--- !u!114 &1399593700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8107185027167169517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8f12ba0c29a9e94aad606c96712fdc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStats: {fileID: 1399593699}
+  characterMovement: {fileID: 3254270383563975471}
+  characterMusic: {fileID: 1399593708}
+  hungerThreshold: 25
+  thirstThreshold: 30
+  dizzinessDuration: 1
+  dizzinessIntensity: 0.1
+  dizzinessRotationIntensity: 0.1
+--- !u!114 &1399593708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8107185027167169517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b4ecf1c299b2ed42907895a81c57f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicList:
+  - {fileID: 8300000, guid: 0a566074d6d56f54e980a09c53abf613, type: 3}
+  - {fileID: 8300000, guid: 189730180bfeb054cbfbea963f1ce46a, type: 3}
+  - {fileID: 8300000, guid: 00d5b22bf0e06f84abe74f0b8d39915a, type: 3}
+  - {fileID: 8300000, guid: b9d57a0c7d2636f4cb08724e886a9847, type: 3}
+  - {fileID: 8300000, guid: bbf1307c53dd1da499d4f4b77971fa23, type: 3}
 --- !u!1 &8227380512623116233
 GameObject:
   m_ObjectHideFlags: 0
@@ -2949,7 +3044,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8954255595850198987}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.481, z: 0.633}
+  m_LocalPosition: {x: 0, y: 3.25, z: 0.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3019,8 +3114,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d829e82394095f549805ef2f90c81827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensivity: 75
+  sensitivity: 100
   body: {fileID: 8919750115004674391}
+  jumpCameraOffset: 1.9
+  cameraResetSpeed: 2
 --- !u!1 &8954255596025361848
 GameObject:
   m_ObjectHideFlags: 0

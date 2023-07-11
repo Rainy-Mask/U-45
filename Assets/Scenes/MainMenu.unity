@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.01
@@ -12570,7 +12570,7 @@ MonoBehaviour:
   qualityDropdown: {fileID: 896148375}
   fullScreenToggle: {fileID: 1381953811}
   confirmationPrompt: {fileID: 914104967}
-  _newGameLevel: InventoryDeneme 1
+  _newGameLevel: Scene_A
   noSavedGameDialog: {fileID: 1619609292}
   resolutionDropdown: {fileID: 1028945034}
 --- !u!4 &1837851801
