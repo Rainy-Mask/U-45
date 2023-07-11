@@ -32,7 +32,6 @@ public class MenuController : MonoBehaviour
 
    [Space(10)] 
    [SerializeField] private TMP_Dropdown qualityDropdown;
-
    [SerializeField] private Toggle fullScreenToggle;
 
    private int _qualityLevel;
