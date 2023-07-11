@@ -26,9 +26,14 @@ public class MenuController : MonoBehaviour
    [SerializeField] private Toggle invertYToggle = null;
    
    [Header("Graphics Settings")] 
-   [SerializeField] private Slider BrightnessSlider = null;
+   [SerializeField] private Slider brightnessSlider = null;
    [SerializeField] private TMP_Text brightnessTextValue = null;
    [SerializeField] private float defaultBrightness = 1;
+
+   [Space(10)] 
+   [SerializeField] private TMP_Dropdown qualityDropdown;
+
+   [SerializeField] private Toggle fullScreenToggle;
 
    private int _qualityLevel;
    private bool _isFullScreen;
@@ -67,6 +72,9 @@ public class MenuController : MonoBehaviour
             currentResolutionIndex = i;
          }
       }
+      resolutionDropdown.AddOptions(options);
+      resolutionDropdown.value = currentResolutionIndex;
+      resolutionDropdown.RefreshShownValue();
    }
    
    public void SetResolution(int resolutionIndex)
@@ -160,7 +168,7 @@ public class MenuController : MonoBehaviour
       PlayerPrefs.SetInt("masterQuality", _qualityLevel);
       QualitySettings.SetQualityLevel(_qualityLevel);
       
-      PlayerPrefs.SetInt("masterFullscreen", (_isFullScreen ? 1 : 0));
+      PlayerPrefs.SetInt("masterFullscreen", (_isFullScreen ? 1 : 0)); // true-false
       Screen.fullScreen = _isFullScreen;
 
       StartCoroutine(ConfirmationBox());
@@ -168,6 +176,24 @@ public class MenuController : MonoBehaviour
    
    public void ResetButton(string MenuType)
    {
+      if (MenuType == "Graphics")
+      {
+         //Reset brightness value
+         brightnessSlider.value = defaultBrightness;
+         brightnessTextValue.text = defaultBrightness.ToString("0.0");
+
+         qualityDropdown.value = 1;  // start with medium quality
+         QualitySettings.SetQualityLevel(1);
+
+         fullScreenToggle.isOn = false;
+         Screen.fullScreen = false;
+
+         Resolution currentResolution = Screen.currentResolution;
+         Screen.SetResolution(currentResolution.width, currentResolution.height, Screen.fullScreen);
+         resolutionDropdown.value = resolutions.Length;
+         GraphicsApply();
+      }
+      
       if (MenuType == "Audio")
       {
          AudioListener.volume = defaultVolume;
