@@ -20,6 +20,18 @@ TagManager:
   - end
   - npc_1
   - npc_2
+  - clock
+  - television
+  - commode
+  - frame_1
+  - key
+  - door
+  - frame_2
+  - frame_3
+  - frame_4
+  - frame_5
+  - commode_1
+  - toy
   layers:
   - Default
   - TransparentFX
