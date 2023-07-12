@@ -32,6 +32,18 @@ TagManager:
   - frame_5
   - commode_1
   - toy
+  - door1
+  - door2
+  - door3
+  - door4
+  - door5
+  - door6
+  - door7
+  - door8
+  - door9
+  - door10
+  - door11
+  - door12
   layers:
   - Default
   - TransparentFX
