@@ -44,6 +44,13 @@ TagManager:
   - door10
   - door11
   - door12
+  - Pipe_1
+  - Pipe_2
+  - Pipe_3
+  - Pipe_4
+  - Pipe_5
+  - pickable
+  - pivot
   layers:
   - Default
   - TransparentFX
@@ -54,7 +61,7 @@ TagManager:
   - Ground
   - Item
   - Road
-  - 
+  - pickable
   - 
   - 
   - 
