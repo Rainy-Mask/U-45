@@ -283,22 +283,22 @@ public class CharacterMovement : MonoBehaviour
     {
         if (panel != null)
         {
-            Text hungerText = panel.transform.Find("HungerText").GetComponent<Text>();
+            Text hungerText = panel.transform.FindChild("HungerText").GetComponent<Text>();
             if (hungerText != null)
             {
-                hungerText.text = "Hunger: " + playerStats.hunger.ToString("f0");
+                hungerText.text = "Hunger: " + playerStats.hunger.ToString("0");
             }
 
-            Text thirstText = panel.transform.Find("ThirstText").GetComponent<Text>();
+            Text thirstText = panel.transform.FindChild("ThirstText").GetComponent<Text>();
             if (thirstText != null)
             {
-                thirstText.text = "Thirst: " + playerStats.thirst.ToString("f0");
+                thirstText.text = "Thirst: " + playerStats.thirst.ToString("0");
             }
 
-            Text sanityText = panel.transform.Find("SanityText").GetComponent<Text>();
+            Text sanityText = panel.transform.FindChild("SanityText").GetComponent<Text>();
             if (sanityText != null)
             {
-                sanityText.text = "Sanity: " + playerStats.sanity.ToString("f0");
+                sanityText.text = "Sanity: " + playerStats.sanity.ToString("0");
                 //Debug.Log("Sanity: " + playerStats.sanity.ToString()); // Akıl sağlığı değerini konsola yazdır
             }
         }

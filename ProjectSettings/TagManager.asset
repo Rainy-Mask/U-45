@@ -51,6 +51,9 @@ TagManager:
   - Pipe_5
   - pickable
   - pivot
+  - HungerText
+  - ThirstText
+  - SanityText
   layers:
   - Default
   - TransparentFX
