@@ -31,7 +31,9 @@ public class CharacterMovement : MonoBehaviour
 
     PlayerStats playerStats;
     private GameObject panel;
+    public static bool GameIsPaused = false; //pause menu
 
+    public GameObject pauseMenuUI; // pause menu
 
     private void Start()
     {
@@ -72,6 +74,7 @@ public class CharacterMovement : MonoBehaviour
         playerStats.DecreaseSanity(0.5f * Time.deltaTime); // Katsayıyı ihtiyaçlarınıza göre ayarlayabilirsiniz
         ToggleInventory();
         UpdateStatusUI();
+        PauseMenu();
     }
 
 
@@ -172,6 +175,37 @@ public class CharacterMovement : MonoBehaviour
             DOTween.To(() => speed, x => speed = x, walkSpeed, 3);
             cam.DOFieldOfView(60, 3);
         }
+    }
+
+    private void PauseMenu()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (GameIsPaused)
+            {
+                Resume();
+            }
+            else
+            {
+                Pause();
+            }
+        }
+    }
+
+    void Resume()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        GameIsPaused = false;
+    }
+
+    void Pause()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        pauseMenuUI.SetActive(true);
+        Time.timeScale = 0f;
+        GameIsPaused = true;
     }
 
 
