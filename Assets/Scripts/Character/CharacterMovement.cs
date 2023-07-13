@@ -41,7 +41,7 @@ public class CharacterMovement : MonoBehaviour
         characterEffects = GetComponent<CharacterEffects>();
         playerStats = GetComponent<PlayerStats>();
         panel = GameObject.Find("statusPanel");
-
+        
         if (PlayerPrefs.HasKey("XPos")) //Oyun başladıktan sonra daha öncesinde kaydedilmiş mi onu kontrol ediyor .Kayededilmiş ise o değerleri yeni pozisyonumuz yapıyor
         {
             float XPos = PlayerPrefs.GetFloat("XPos");
@@ -50,6 +50,7 @@ public class CharacterMovement : MonoBehaviour
 
             transform.position = new Vector3(XPos, YPos, ZPos);
         }
+        
     }
 
     public void SavePos() //Karakterin pozisyonlarını kaydetmeye yarar

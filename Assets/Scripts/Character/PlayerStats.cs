@@ -41,7 +41,7 @@ public class PlayerStats : MonoBehaviour
         CheckHunger();
         CheckThirst();
         CheckSanity();
-        CheckWeightCapacity();
+        //CheckWeightCapacity();
     }
 
     private void CheckHunger()
@@ -74,8 +74,14 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    private void CheckWeightCapacity()
+    public void CheckWeightCapacity()
     {
+        if(weightCapacity >= 50)
+        {
+            Debug.Log("YAVAŞLAMASI ICIN KOD");
+
+
+        }
         // Ağırlık kapasitesi kontrolü yapılabilir
         // Karakterin taşıma kapasitesi aşıldığında neler olacağını belirleyebilirsiniz
         // Örneğin karakterin hızını düşürebilir, hareketini engelleyebilir veya diğer etkileşimler yapabilirsiniz
@@ -123,7 +129,6 @@ public class PlayerStats : MonoBehaviour
 
     public void IncreaseWeightCapasity(float amaount)
     {
-
         weightCapacity += amaount;
         weightCapacity = Mathf.Clamp(weightCapacity, 0f, 200f);
         Debug.Log("TAŞIMA KAPASİTESİ : " + weightCapacity); // kaldır bunu sonradan test amaçlı :)

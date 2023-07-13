@@ -8,6 +8,7 @@ public class InventoryManager : MonoBehaviour
     public InventorySlot[] inventorySlots;
     public GameObject inventoryItemPrefab;
     public Transform MainCharTransform;
+    public Transform RightHand;
     public PlayerStats playerStats;
     public Food[] foods;
     public Medicine[] medicines;
