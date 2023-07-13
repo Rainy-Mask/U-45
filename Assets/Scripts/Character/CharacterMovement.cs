@@ -3,6 +3,8 @@ using UnityEngine.UI;
 using DG.Tweening;
 public class CharacterMovement : MonoBehaviour
 {
+    [SerializeField] private AudioSource audioSource;
+
     // character movement
     private CharacterController characterController;
     [SerializeField] public float speed;
@@ -38,12 +40,12 @@ public class CharacterMovement : MonoBehaviour
     private void Start()
     {
         walkSpeed = speed;
-        cam = Camera.main;  
+        cam = Camera.main;
         characterController = GetComponent<CharacterController>();
         characterEffects = GetComponent<CharacterEffects>();
         playerStats = GetComponent<PlayerStats>();
         panel = GameObject.Find("statusPanel");
-        
+
         if (PlayerPrefs.HasKey("XPos")) //Oyun başladıktan sonra daha öncesinde kaydedilmiş mi onu kontrol ediyor .Kayededilmiş ise o değerleri yeni pozisyonumuz yapıyor
         {
             float XPos = PlayerPrefs.GetFloat("XPos");
@@ -52,7 +54,7 @@ public class CharacterMovement : MonoBehaviour
 
             transform.position = new Vector3(XPos, YPos, ZPos);
         }
-        
+
     }
 
     public void SavePos() //Karakterin pozisyonlarını kaydetmeye yarar
@@ -83,7 +85,7 @@ public class CharacterMovement : MonoBehaviour
         isGrounded = Physics.CheckSphere(groundPos.position, groundDistance, groundMask); // Zeminde olup olmadığımızı anla
         velocity.y += gravity * Time.deltaTime;
 
-        if (isGrounded && velocity.y < 0) 
+        if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
         }
@@ -105,10 +107,14 @@ public class CharacterMovement : MonoBehaviour
 
             this.GetComponent<Animator>().SetBool("isWalking", true);
             this.GetComponent<Animator>().SetBool("isGrounded", true);
+
+            audioSource.enabled = true;
         }
         if (Input.GetKeyUp(KeyCode.W))
         {
             this.GetComponent<Animator>().SetBool("isWalking", false);
+
+            audioSource.enabled = false;
         }
         //left
         if (Input.GetKey(KeyCode.A))
@@ -118,10 +124,13 @@ public class CharacterMovement : MonoBehaviour
 
             this.GetComponent<Animator>().SetBool("isLeft", true);
             this.GetComponent<Animator>().SetBool("isGrounded", true);
+
+            audioSource.enabled = true;
         }
         if (Input.GetKeyUp(KeyCode.A))
         {
             this.GetComponent<Animator>().SetBool("isLeft", false);
+            audioSource.enabled = false;
         }
         //right
         if (Input.GetKey(KeyCode.D))
@@ -131,10 +140,12 @@ public class CharacterMovement : MonoBehaviour
 
             this.GetComponent<Animator>().SetBool("isRight", true);
             this.GetComponent<Animator>().SetBool("isGrounded", true);
+            audioSource.enabled = true;
         }
         if (Input.GetKeyUp(KeyCode.D))
         {
             this.GetComponent<Animator>().SetBool("isRight", false);
+            audioSource.enabled = false;
         }
 
         //back
@@ -145,10 +156,12 @@ public class CharacterMovement : MonoBehaviour
 
             this.GetComponent<Animator>().SetBool("isBack", true);
             this.GetComponent<Animator>().SetBool("isGrounded", true);
+            audioSource.enabled = true;
         }
         if (Input.GetKeyUp(KeyCode.S))
         {
             this.GetComponent<Animator>().SetBool("isBack", false);
+            audioSource.enabled = false;
         }
     }
 
@@ -166,6 +179,7 @@ public class CharacterMovement : MonoBehaviour
             playerStats.DecreaseHunger(0.02f); // Yürüme ile açlık seviyesini azalt
             playerStats.DecreaseThirst(0.02f); // Yürüme ile susuzluk seviyesini azalt         
 
+            audioSource.pitch = 2.05f;
             //Jump();
         }
         else if (Input.GetKeyUp(KeyCode.LeftShift))
@@ -174,6 +188,8 @@ public class CharacterMovement : MonoBehaviour
             this.GetComponent<Animator>().SetBool("isRunning", false);
             DOTween.To(() => speed, x => speed = x, walkSpeed, 3);
             cam.DOFieldOfView(60, 3);
+
+            audioSource.pitch = 1.15f;
         }
     }
 
@@ -212,7 +228,7 @@ public class CharacterMovement : MonoBehaviour
 
     private void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded==true)
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
         {
             isGrounded = false;
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
@@ -263,7 +279,7 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
-        private void UpdateStatusUI()
+    private void UpdateStatusUI()
     {
         if (panel != null)
         {

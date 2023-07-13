@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
+    private bool sanityBelowZero;
+    [SerializeField]private AudioSource sanitySource;
+
+
     public float hunger; // Açlık
     public float thirst; // Susuzluk
     public float sanity; // Akıl Sağlığı
@@ -69,9 +73,25 @@ public class PlayerStats : MonoBehaviour
         // Akıl sağlığı kontrolü yapılabilir
         if (sanity <= 0f)
         {
+            sanityBelowZero = true;
             // Karakter akıl sağlığı seviyesi sıfırın altına düştüğünde neler olacağını belirleyebilirsiniz
             // Örneğin karakterin canını düşürebilir, oyunu sonlandırabilir veya diğer etkileşimler yapabilirsiniz
         }
+        else
+        {
+            sanityBelowZero = false;
+        }
+        
+        if(sanityBelowZero)
+        {
+            sanitySource.enabled = true;
+        }
+        else
+        {
+            sanitySource.enabled = false;
+        }
+
+
     }
 
     public void CheckWeightCapacity()
