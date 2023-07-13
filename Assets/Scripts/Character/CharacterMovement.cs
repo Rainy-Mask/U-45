@@ -192,7 +192,7 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
-    void Resume()
+    public void Resume()
     {
         Cursor.lockState = CursorLockMode.Locked;
         pauseMenuUI.SetActive(false);
@@ -200,7 +200,7 @@ public class CharacterMovement : MonoBehaviour
         GameIsPaused = false;
     }
 
-    void Pause()
+    public void Pause()
     {
         Cursor.lockState = CursorLockMode.None;
         pauseMenuUI.SetActive(true);
