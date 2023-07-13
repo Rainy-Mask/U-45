@@ -54,8 +54,8 @@ public class PipeController : MonoBehaviour
         if (!isTaked)
         {
             RaycastHit hit;
-            Ray ray = new Ray(transform.position, transform.forward * 2);
-            if (Physics.Raycast(ray, out hit, Distance) && hit.collider.gameObject.layer == LayerMask.NameToLayer("pickable"))
+            Ray ray = new Ray(transform.position, transform.forward);
+            if (Physics.Raycast(ray, out hit, Distance * 2) && hit.collider.gameObject.layer == LayerMask.NameToLayer("pickable"))
             {
                 cross.color = Color.red;
                 if (Input.GetKeyDown(KeyCode.E))
