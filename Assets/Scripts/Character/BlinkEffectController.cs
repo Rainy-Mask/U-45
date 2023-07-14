@@ -10,7 +10,7 @@ public class BlinkEffectController : MonoBehaviour
     private float initialFOV;
     private Vector3 initialScale;
     private float timer;
-    private float blinkInterval = 3f; // 3 saniyede bir göz kırpma videosunu oynatmak için süre
+    private float blinkInterval = 15f; // 3 saniyede bir göz kırpma videosunu oynatmak için süre
 
     private void Start()
     {
