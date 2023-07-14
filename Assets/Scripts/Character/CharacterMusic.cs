@@ -30,12 +30,12 @@ public class CharacterMusic : MonoBehaviour
         }
     }
 
-    public void PlayNextMusic()
+    public int PlayNextMusic()
     {
         if (musicList.Count == 0)
         {
             Debug.LogWarning("Music list is empty!");
-            return;
+            return -1;
         }
 
         currentMusicIndex++;
@@ -45,8 +45,17 @@ public class CharacterMusic : MonoBehaviour
         }
 
         audioSource.clip = musicList[currentMusicIndex];
-        audioSource.Play();
+        StartCoroutine(StartMusic());
         IsMusicPlaying = true;
+
+        return currentMusicIndex;
+    }
+
+    IEnumerator StartMusic()
+    {
+        yield return new WaitForSeconds(1.6f);
+
+        audioSource.Play();
     }
 
     public void StopMusic()

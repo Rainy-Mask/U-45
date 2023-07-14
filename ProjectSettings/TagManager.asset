@@ -54,6 +54,7 @@ TagManager:
   - HungerText
   - ThirstText
   - SanityText
+  - Walkman
   layers:
   - Default
   - TransparentFX
