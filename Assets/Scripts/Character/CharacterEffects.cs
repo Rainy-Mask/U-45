@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CharacterEffects : MonoBehaviour
@@ -15,6 +16,9 @@ public class CharacterEffects : MonoBehaviour
     private float originalSpeed;
     private Coroutine dizzyCoroutine;
     private float mentalHealthIncreaseRate = 1f; // Akıl sağlığı artış hızı
+    
+    [SerializeField] private Animator playCassette;
+    [SerializeField] private TextMeshPro textMeshPro;
 
     private void Start()
     {
@@ -30,7 +34,7 @@ public class CharacterEffects : MonoBehaviour
         //originalSpeed = characterMovement.speed;
     }
 
-        private void Update()
+    private void Update()
     {
         if (playerStats.hunger < hungerThreshold || playerStats.thirst < thirstThreshold)
         {
@@ -60,11 +64,31 @@ public class CharacterEffects : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.K))
         {
+            playCassette.SetBool("Play", true);
             if (characterMusic != null)
             {
                 if (!characterMusic.IsMusicPlaying)
                 {
-                    characterMusic.PlayNextMusic();
+                    int currentMusicIndex = characterMusic.PlayNextMusic();
+
+                    switch (currentMusicIndex)
+                    {
+                        case 0:
+                            textMeshPro.text = "Aksamlar Cokunce Bu Sensiz Sehre";
+                            break;
+                        case 1:
+                            textMeshPro.text = "Sana Cikiyor Yollar";
+                            break;
+                        case 2:
+                            textMeshPro.text = "Seni Severdim";
+                            break;
+                        case 3:
+                            textMeshPro.text = "Yaramizda Kalsin";
+                            break;
+                        case 4:
+                            textMeshPro.text = "Umit Ozdag - Anlayamazsin";
+                            break;
+                    }
                 }
                 else
                 {
@@ -75,6 +99,7 @@ public class CharacterEffects : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.L))
         {
+            playCassette.SetBool("Play", false);
             if (characterMusic != null && characterMusic.IsMusicPlaying)
             {
                 characterMusic.StopMusic();
@@ -135,7 +160,7 @@ public class CharacterEffects : MonoBehaviour
         IsDizzy = false;
     }
 
-        private void IncreaseMentalHealth()
+    private void IncreaseMentalHealth()
     {
         const float mentalHealthIncreaseAmount = 1f; // Artırma miktarı
 
