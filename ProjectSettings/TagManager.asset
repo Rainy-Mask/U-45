@@ -55,6 +55,9 @@ TagManager:
   - ThirstText
   - SanityText
   - Walkman
+  - exit
+  - Remy
+  - npc1
   layers:
   - Default
   - TransparentFX

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Video;
 
 public class TriggerItem : MonoBehaviour
@@ -251,6 +252,10 @@ public class TriggerItem : MonoBehaviour
         {
             door = true;
         }
+        if (other.gameObject.CompareTag("exit"))
+        {
+            SceneManager.LoadScene(1);
+        }
     }
 
     void OnTriggerExit(Collider other)
@@ -304,7 +309,7 @@ public class TriggerItem : MonoBehaviour
 
     IEnumerator EnabledText()
     {
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds(9f);
         itemText.enabled = false;
         itemText.text = "";
     }
@@ -341,14 +346,14 @@ public class TriggerItem : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         itemText.enabled = true;
-        text = "Hatýrladýðým en son anýmýz.";
+        text = "The last memory I remember of us.";
         StartCoroutine(TypeWrite());
     }
     IEnumerator Frame_2()
     {
         yield return new WaitForSeconds(2f);
         itemText.enabled = true;
-        text = "I missed you all so much.";
+        text = "I wish you were here.";
         StartCoroutine(TypeWrite());
     }
 
@@ -356,7 +361,7 @@ public class TriggerItem : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         itemText.enabled = true;
-        text = "I missed you all so much.";
+        text = "I missed you so much.";
         StartCoroutine(TypeWrite());
     }
 
@@ -364,13 +369,13 @@ public class TriggerItem : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         itemText.enabled = true;
-        text = "I missed you all so much.";
+        text = "My happiest memory.";
         StartCoroutine(TypeWrite());
     }IEnumerator Frame_5()
     {
         yield return new WaitForSeconds(2f);
         itemText.enabled = true;
-        text = "I missed you all so much.";
+        text = "The photo we took when my precious daughter turned 5 years old.";
         StartCoroutine(TypeWrite());
     }
     IEnumerator Commode()
@@ -384,7 +389,7 @@ public class TriggerItem : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         itemText.enabled = true;
-        text = "She was very grumpy while taking this photo.";
+        text = "";
         StartCoroutine(TypeWrite());
         
     }
