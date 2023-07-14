@@ -108,9 +108,9 @@ public class CharacterEffects : MonoBehaviour
         characterMovement.speed = reducedSpeed;
     }
 
-    [SerializeField] private float dizzinessDuration = 5f;
-    [SerializeField] private float dizzinessIntensity = 0.1f;
-    [SerializeField] private float dizzinessRotationIntensity = 10f;
+    [SerializeField] private float dizzinessDuration = 0f; // BURAYI TEKRAR AKTİFLEŞTİREBİLİRİZ!!!!!!
+    [SerializeField] private float dizzinessIntensity = 0f;
+    [SerializeField] private float dizzinessRotationIntensity = 0f;
 
     private IEnumerator StartDizzinessEffect()
     {

@@ -70,3 +70,6 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+Assets/Minigames/Car_Minigame/CartoonLowPolyCityLite/CartoonLowPolyCityLite_2020.3.0_HDRP_v1.21.unitypackage.meta
+Assets/Minigames/Car_Minigame/CartoonLowPolyCityLite/CartoonLowPolyCityLite_2020.3.0_URP_v1.21.unitypackage.meta
+Assets/Minigames/Car_Minigame/LowPolyRetroCars/_Common/Materials/SRP/LowPolyRetroCarsMaterials_LWRP.unitypackage.meta
