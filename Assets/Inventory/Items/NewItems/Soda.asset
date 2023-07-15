@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Soda
   description: Decrease thirsty
-  image: {fileID: 0}
+  image: {fileID: 7264087667350006480, guid: cbe31cbb249f533428f7f4d84652d789, type: 3}
   type: 1
   stackable: 1
-  itemPrefab: {fileID: 0}
-  count: 0
+  itemPrefab: {fileID: 8207276701443020041, guid: deff220b002044c4897902e1ec7d95b7, type: 3}
+  count: 1
   weight: 0.5
   hunger: 0
   thirst: 10

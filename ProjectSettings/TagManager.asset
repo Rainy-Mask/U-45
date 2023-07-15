@@ -58,6 +58,11 @@ TagManager:
   - exit
   - Remy
   - npc1
+  - Water
+  - Medicine1
+  - Food1
+  - Food2
+  - Food3
   layers:
   - Default
   - TransparentFX

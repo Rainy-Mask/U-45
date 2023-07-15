@@ -43,6 +43,41 @@ public class PlayerInventory : MonoBehaviour
             demoScript.PickupItem(id);
             Destroy(other.gameObject);
         }
+        if (other.gameObject.CompareTag("Water"))
+        {
+            id = 3;
+            item.itemPrefab = other.gameObject;
+            demoScript.PickupItem(id);
+            Destroy(other.gameObject);
+        }
+        if (other.gameObject.CompareTag("Medicine1"))
+        {
+            id = 4;
+            item.itemPrefab = other.gameObject;
+            demoScript.PickupItem(id);
+            Destroy(other.gameObject);
+        }
+        if (other.gameObject.CompareTag("Food1"))
+        {
+            id = 5;
+            item.itemPrefab = other.gameObject;
+            demoScript.PickupItem(id);
+            Destroy(other.gameObject);
+        }
+        if (other.gameObject.CompareTag("Food2"))
+        {
+            id = 6;
+            item.itemPrefab = other.gameObject;
+            demoScript.PickupItem(id);
+            Destroy(other.gameObject);
+        }
+        if (other.gameObject.CompareTag("Food3"))
+        {
+            id = 7;
+            item.itemPrefab = other.gameObject;
+            demoScript.PickupItem(id);
+            Destroy(other.gameObject);
+        }
     }
 
     private void TryInteract()
@@ -64,6 +99,31 @@ public class PlayerInventory : MonoBehaviour
             else if (collider.CompareTag("Medic"))
             {
                 PickUpItem(collider.gameObject, 0);
+                return;
+            }
+            else if (collider.CompareTag("Water"))
+            {
+                PickUpItem(collider.gameObject, 3);
+                return;
+            }
+            else if (collider.CompareTag("Medicine1"))
+            {
+                PickUpItem(collider.gameObject, 4);
+                return;
+            }
+            else if (collider.CompareTag("Food1"))
+            {
+                PickUpItem(collider.gameObject, 5);
+                return;
+            }
+            else if (collider.CompareTag("Food2"))
+            {
+                PickUpItem(collider.gameObject, 6);
+                return;
+            }
+            else if (collider.CompareTag("Food3"))
+            {
+                PickUpItem(collider.gameObject, 7);
                 return;
             }
         }

@@ -136,15 +136,15 @@ public class PlayerStats : MonoBehaviour
 
     public void IncreaseHunger(float amaount)
     {
-        
         hunger += amaount;
         hunger = Mathf.Clamp(hunger, 0f, 100f);
+        Debug.Log(amaount + " Degeri kadar eklendi.");
     }
     public void IncreaseThirst(float amaount)
     {
-        
         thirst += amaount;
         thirst = Mathf.Clamp(thirst, 0f, 100f);
+        Debug.Log(amaount + " Degeri kadar eklendi.");
     }
 
     public void IncreaseWeightCapasity(float amaount)

@@ -156,18 +156,50 @@ public class InventoryManager : MonoBehaviour
             if (item.name == "Arveles")
             {
                 playerStats.IncreaseThirst(medicines[0].thirst);
+                Debug.Log("Use Item Arveles Thirst : " + medicines[0].thirst);
                 playerStats.DecreaseWeightCapasity(medicines[0].weight);
                 //playerStats.IncreaseHealth(medicines[0].health);  Bu kýsým þuanlýk eklenmedi
             }
-            else if (item.name == "Apple")
+            else if (item.name == "Beans")
             {
                 //playerStats.IncreaseHealth(foods[0].health);  Bu kýsým þuanlýk eklenmedi
                 playerStats.IncreaseHunger(foods[0].hunger);
                 playerStats.IncreaseThirst(foods[0].thirst);
                 playerStats.DecreaseWeightCapasity(foods[0].weight);
+                /*
+                Debug.Log("Use Item Apple Hunger : " + foods[0].hunger);
+                Debug.Log("Use Item Apple Thirst : " + foods[0].thirst);
+                */
+            }
+            else if (item.name == "CannedMeat")
+            {
+                //playerStats.IncreaseHealth(foods[0].health);  Bu kýsým þuanlýk eklenmedi
+                playerStats.IncreaseHunger(foods[2].hunger);
+                playerStats.IncreaseThirst(foods[2].thirst);
+                playerStats.DecreaseWeightCapasity(foods[2].weight);
+
+                Debug.Log("Use Item CanndeMeat Hunger : " + foods[0].hunger);
+                Debug.Log("Use Item CannedMeat Thirst : " + foods[0].thirst);
+
+            }
+            else if (item.name == "Water")
+            {
+                //playerStats.IncreaseHealth(foods[1].health);  Bu kýsým þuanlýk eklenmedi
+                playerStats.IncreaseThirst(foods[1].thirst);
+                playerStats.DecreaseWeightCapasity(foods[1].weight);
+                /*
+                Debug.Log("Use Item Apple Hunger : " + foods[0].hunger);
+                Debug.Log("Use Item Apple Thirst : " + foods[0].thirst);
+                */
+            }
+            else if (item.name == "Soda")
+            {
+
+                playerStats.IncreaseThirst(foods[3].thirst);
+                playerStats.DecreaseWeightCapasity(foods[3].weight);
             }
 
-            if (itemInSlot.count <= 0)
+                if (itemInSlot.count <= 0)
             {
                 Destroy(itemInSlot.gameObject);
             }
