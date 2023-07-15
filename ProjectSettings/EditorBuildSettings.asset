@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/Flooded_Grounds/Scenes/Scene_A.unity
     guid: c0d944ca9defd20449bc336e50d75a08
   - enabled: 1
-    path: Assets/Scenes/InventoryDeneme 1.unity
-    guid: 60bebcea0eeec9548a9d215c986af2c8
+    path: Assets/Minigames/Minigame3/Scenes/PipeMinigameScene.unity
+    guid: d2792a65caf579440963020b7dc05233
+  - enabled: 1
+    path: Assets/Minigames/Home_Minigame/Scenes/HomeMinigame.unity
+    guid: 118f1ebf8f0bb6f49ba957052003932e
+  - enabled: 1
+    path: Assets/Minigames/Car_Minigame/Scenes/CarMinigame.unity
+    guid: 016fcd2d0479a7f4fa9427c1cce2a7f4
   m_configObjects: {}
