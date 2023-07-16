@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: CannedMeat
   description: Gives Health
-  image: {fileID: -7100116942994055197, guid: cbe31cbb249f533428f7f4d84652d789, type: 3}
+  image: {fileID: 21300000, guid: 39e419024d8741444a063b7b8b60dfaf, type: 3}
   type: 1
   stackable: 0
   itemPrefab: {fileID: 919132149155446097, guid: 201ebaa3a3b0a9c43ad9051078a034b3, type: 3}

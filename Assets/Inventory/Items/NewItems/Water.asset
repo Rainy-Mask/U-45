@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Water
   description: Decrease thirsty
-  image: {fileID: 21300000, guid: 5659b073e19871d4da7394b6456da365, type: 3}
+  image: {fileID: 21300000, guid: 3ab300df47de7ee47bcf112848bc757a, type: 3}
   type: 1
   stackable: 1
   itemPrefab: {fileID: 1216505430168376, guid: 57e3542e6c16dfd40972c0b1b0899afb, type: 3}
