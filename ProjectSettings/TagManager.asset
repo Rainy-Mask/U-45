@@ -63,6 +63,14 @@ TagManager:
   - Food1
   - Food2
   - Food3
+  - npc2
+  - emily
+  - jackson
+  - ashley
+  - marcus
+  - lily
+  - sarah
+  - jacksonDoc
   layers:
   - Default
   - TransparentFX
