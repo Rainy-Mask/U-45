@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Arveles
   m_EditorClassIdentifier: 
   name: Arveles
-  description: Gives Health
+  description: Gives Health 20 Decrease Thirst 5
   image: {fileID: 21300000, guid: ce764815b6427284f8a962398a8b13ea, type: 3}
   type: 0
   stackable: 1
   itemPrefab: {fileID: 1985338178271116, guid: 48ec186542777474bb236dff1694340c, type: 3}
   count: 1
-  weight: 25
+  weight: 0.25
   health: 20
   thirst: -5

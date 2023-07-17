@@ -24,6 +24,7 @@ public class PlayerStats : MonoBehaviour
 
         if (PlayerPrefs.HasKey("hunger"))//Oyun başladıktan sonra daha öncesinde kaydedilmiş mi onu kontrol ediyor .Kayededilmiş ise o andaki değerleri atıyor.
         {
+            Debug.Log("Load Player Stats");
             hunger = PlayerPrefs.GetFloat("hunger");
             thirst = PlayerPrefs.GetFloat("thirst");
             sanity = PlayerPrefs.GetFloat("sanity");
@@ -33,6 +34,7 @@ public class PlayerStats : MonoBehaviour
 
     public void SaveStats()//Karakter statlaini kaydetmeye yarar
     {
+        Debug.Log("Save Player Stats");
         PlayerPrefs.SetFloat("hunger", hunger);
         PlayerPrefs.SetFloat("thirst", thirst);
         PlayerPrefs.SetFloat("sanity", sanity);

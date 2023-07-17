@@ -12,11 +12,6 @@ public class UIController : MonoBehaviour
 
     [SerializeField] private PlayerStats playerStats;
 
-    private void Start()
-    {
-        playerStats = FindObjectOfType<PlayerStats>();
-    }
-
     private void Update()
     {
         // Hunger değerini güncelle

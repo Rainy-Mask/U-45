@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Water
   m_EditorClassIdentifier: 
   name: Water
-  description: Decrease thirsty
+  description: Decrease Thirsty 20 Gives Health 3
   image: {fileID: 21300000, guid: 3ab300df47de7ee47bcf112848bc757a, type: 3}
   type: 1
   stackable: 1

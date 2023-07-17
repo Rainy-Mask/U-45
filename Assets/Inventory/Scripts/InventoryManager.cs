@@ -8,7 +8,6 @@ public class InventoryManager : MonoBehaviour
     public InventorySlot[] inventorySlots;
     public GameObject inventoryItemPrefab;
     public Transform MainCharTransform;
-    public Transform RightHand;
     public PlayerStats playerStats;
     public Food[] foods;
     public Medicine[] medicines;
@@ -98,7 +97,7 @@ public class InventoryManager : MonoBehaviour
     }
     public void SpawnItem(GameObject itemPrefab) // Item drop kismi icin olusturuldu ama daha bitmedi
     {
-        Vector3 spawnPosition = MainCharTransform.position + new Vector3(0f, 0f, 3f);
+        Vector3 spawnPosition = MainCharTransform.position + new Vector3(0f, 0.5f, 3f);
         GameObject newItemGO = Instantiate(itemPrefab, spawnPosition, Quaternion.identity);
     }
 
