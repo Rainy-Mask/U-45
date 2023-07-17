@@ -122,4 +122,49 @@ Alınan kararlar:
   - Takım üyelerinin gelecek sprintlerde daha fazla aktif olması gerektiğine vurgu yapılmıştır.
   - Takımda birbirinin görevlerine destek olunacak: Kendi üstümüze düşen görevleri bitirdiğimizde diğer arkadaşlarımızın görevlerine destek olmaya çalışılacak. Ortak şekilde görevler üstlenip daha hızlı ve sağlıklı şekilde bitirilecek.
   - Oyunun tasarım ve modelleme kısmına daha da yüklenilecek.
+ 
 
+---
+
+ 
+# Sprint 3
+
+- **Sprint içinde tamamlanması tahmin edilen puan**: 30 Puan
+- **Puan tamamlama mantığı**: Toplamda proje boyunca tamamlanması gereken 190 puanlık backlog bulunmaktadır. Bu sprintte ürünümüzü tamamlayıp 190 puanın tamamına ulaşmak hedefimiz.
+- **Daily Scrum**: Daily Scrum toplantılarımızın hepsinin Discord ve WhatsApp üzerinden yapılmasına karar verilmiştir. Daily Scrum toplantısı örneği jpeg olarak Readme'de tarafımızdan paylaşılmaktadır.
+  ![image](https://github.com/Rainy-Mask/U-45/assets/107516137/4db6b475-8470-4967-863e-59a66c6b23b9)
+  ![image](https://github.com/Rainy-Mask/U-45/assets/107516137/a87a7008-ab73-411c-b057-3955406cee20)
+  ![image](https://github.com/Rainy-Mask/U-45/assets/107516137/503cbcf2-4bb3-451c-8ac0-8703e1c76075)
+
+
+
+- **Ürün Durumu**: Ekran görüntüleri:
+  ![image](https://github.com/Rainy-Mask/U-45/assets/107516137/e1028cde-9993-4a51-a626-0e8ec91d0b01)
+  ![image](https://github.com/Rainy-Mask/U-45/assets/107516137/a4e9d5c2-9516-4880-8fae-8706bde50b6b)
+  ![image](https://github.com/Rainy-Mask/U-45/assets/107516137/19bbc58e-2554-47a0-97a6-d764877f854e)
+
+
+- **Sprint Review**: 
+Alınan kararlar:
+  - Ürün teslim vaktine kadar planladığımız şekilde ilerleyip ilerleyemeceğimiz konuşuldu.
+  - Takvime uygun ilerleyiş planlandı. Oyuna ekleyebileceğimiz ya da çıkartmamız gereken özellikler/noktalar konuşuldu.
+  - Oyunda eklenecek görevler kesinleştirildi, oyunun diyalogları yazıldı.
+  - NPC Karakterler kararlaştırıldı ve eklendi.
+
+- **Sprint Review Katılımcıları** : Yiğit Bozbay, Cemre Uysal, Ahmet Melih Kara, Furkan Korkmazgöz, Emine Ecem Nayir.
+
+- **Sprint Notları**: 
+  - UI Tasarımları tamamlandı.
+  - Karakter tasarımı tamamlandı.
+  - Worlddesign tamamlandı.
+  - Minimap tasarımı tamamlandı.
+  - Sesler üzerine çalışıldı.
+  - Karakterin survival değerleri iyileştirildi. Eklemeler yapıldı.
+  - Oyun neredeyse tam planladığımız şekilde ürün teslimine yetişiyor.
+
+- **Sprint Retrospective** : Toplantıda aldığımız kararlar aşağıda belirtilmiştir.
+
+  - Ürün teslim gününe kadar, bütün ekibimiz elinden geldiğince çalışarak eksiklerimizi, tamamlamamız gereken şeyleri tamamlamaya çalışacak.
+  - Herkes üstüne düşen görevi eksiksiz şekilde yapmaya devam edecek. Görevlerini erken bitiren, her zaman olduğu gibi diğer ekip arkadaşlarına yardım edecek.
+  - Ekip üyelerinin gelecek projelerde birlikte çalışmaya uygun olduğuna karar verildi.
+  - Oyun bootcamp sonunda, iyileştirilerek Steam pazarına çıkacak.
