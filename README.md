@@ -49,6 +49,7 @@ Oyunumuzu bootcamp sonrasında Steam'e yüklemeyi düşündüğümüz için oyun
 - **Sprint içinde tamamlanması tahmin edilen puan**: 60 Puan
 - **Puan tamamlama mantığı**: Toplamda proje boyunca tamamlanması gereken 190 puanlık backlog bulunmaktadır. 3 sprint'e bölündüğünde ilk sprint'in en azından 60 ile başlaması gerektiğine karar verildi.
 - **Daily Scrum**: Daily Scrum toplantılarımızın hepsinin Discord üzerinden yapılmasına karar verilmiştir. Daily Scrum toplantısı örneği jpeg olarak Readme'de tarafımızdan paylaşılmaktadır.
+- **Sprint board update**: Sprint board screenshotları:
   ![trello](https://github.com/Rainy-Mask/U-45/assets/107516137/0d7a260e-7cd7-43cf-9e5d-04cfac53126e)
   ![figma](https://github.com/Rainy-Mask/U-45/assets/107516137/2f494ba0-c7cc-4d8c-916c-db11d6551236)
 
@@ -79,12 +80,14 @@ Alınan kararlar:
 - **Sprint içinde tamamlanması tahmin edilen puan**: 100 Puan
 - **Puan tamamlama mantığı**: Toplamda proje boyunca tamamlanması gereken 190 puanlık backlog bulunmaktadır. 2. Sprintte toplam 160 Puan'a ulaşmamız gerektiğine karar verildi.
 - **Daily Scrum**: Daily Scrum toplantılarımızın hepsinin Discord ve WhatsApp üzerinden yapılmasına karar verilmiştir. Daily Scrum toplantısı örneği jpeg olarak Readme'de tarafımızdan paylaşılmaktadır.
-  ![image](https://github.com/Rainy-Mask/U-45/assets/107516137/6a7228eb-939d-4c94-96d5-fd6d692fdf1d)
-  ![figma2](https://github.com/Rainy-Mask/U-45/assets/107516137/2e023ee5-b571-4d64-8c50-5ea62a7b5b5e)
-  ![WhatsApp Image 2023-06-27 at 12 27 25](https://github.com/Rainy-Mask/U-45/assets/110540754/4df7c13f-a5db-4b8c-9dbb-68038f631e97)
-  ![WhatsApp Image 2023-06-27 at 12 23 44](https://github.com/Rainy-Mask/U-45/assets/110540754/af5f44b6-d2df-4427-a443-41f6b9450844)
+- **Daily Scrum Örneği**: Daily scrum toplantılarımızın örnekleri:
+
   ![U-45-3](https://github.com/Rainy-Mask/U-45/assets/110540754/c8296fe1-5175-4d6e-9c6d-9df0a7a4e2df)
   ![U-45-4](https://github.com/Rainy-Mask/U-45/assets/110540754/7c747b37-2ddc-4622-8e08-0f0cf8a8b0e2)
+
+- **Sprint board update**: Sprint board screenshotları:
+  ![image](https://github.com/Rainy-Mask/U-45/assets/107516137/6a7228eb-939d-4c94-96d5-fd6d692fdf1d)
+  ![figma2](https://github.com/Rainy-Mask/U-45/assets/107516137/2e023ee5-b571-4d64-8c50-5ea62a7b5b5e)
 
 
 
@@ -94,6 +97,8 @@ Alınan kararlar:
 - **Ürün Durumu**: Ekran görüntüleri:
   ![ud2](https://github.com/Rainy-Mask/U-45/assets/107516137/85caf693-4526-4ce2-9944-25f74582df59)
   ![image](https://github.com/Rainy-Mask/U-45/assets/107516137/6a38ad67-4018-4dac-81f3-db970d11c0f6)
+  ![WhatsApp Image 2023-06-27 at 12 27 25](https://github.com/Rainy-Mask/U-45/assets/110540754/4df7c13f-a5db-4b8c-9dbb-68038f631e97)
+  ![WhatsApp Image 2023-06-27 at 12 23 44](https://github.com/Rainy-Mask/U-45/assets/110540754/af5f44b6-d2df-4427-a443-41f6b9450844)
 
 
 
@@ -132,9 +137,15 @@ Alınan kararlar:
 - **Sprint içinde tamamlanması tahmin edilen puan**: 30 Puan
 - **Puan tamamlama mantığı**: Toplamda proje boyunca tamamlanması gereken 190 puanlık backlog bulunmaktadır. Bu sprintte ürünümüzü tamamlayıp 190 puanın tamamına ulaşmak hedefimiz.
 - **Daily Scrum**: Daily Scrum toplantılarımızın hepsinin Discord ve WhatsApp üzerinden yapılmasına karar verilmiştir. Daily Scrum toplantısı örneği jpeg olarak Readme'de tarafımızdan paylaşılmaktadır.
+- **Daily Scrum Örneği**: Daily scrum toplantılarımızın örneği:  
+  ![image](https://github.com/Rainy-Mask/U-45/assets/107516137/503cbcf2-4bb3-451c-8ac0-8703e1c76075)
+
+- **Sprint board update**: Sprint board screenshotları:
+  
   ![image](https://github.com/Rainy-Mask/U-45/assets/107516137/4db6b475-8470-4967-863e-59a66c6b23b9)
   ![image](https://github.com/Rainy-Mask/U-45/assets/107516137/a87a7008-ab73-411c-b057-3955406cee20)
-  ![image](https://github.com/Rainy-Mask/U-45/assets/107516137/503cbcf2-4bb3-451c-8ac0-8703e1c76075)
+
+
 
 
 
@@ -168,3 +179,8 @@ Alınan kararlar:
   - Herkes üstüne düşen görevi eksiksiz şekilde yapmaya devam edecek. Görevlerini erken bitiren, her zaman olduğu gibi diğer ekip arkadaşlarına yardım edecek.
   - Ekip üyelerinin gelecek projelerde birlikte çalışmaya uygun olduğuna karar verildi.
   - Oyun bootcamp sonunda, iyileştirilerek Steam pazarına çıkacak.
+
+- **Proje Genel Takvimi** : Projedeki günlük tuttuğumuz takvimimiz.
+![image](https://github.com/Rainy-Mask/U-45/assets/107516137/d7e3eb7f-36ae-4936-bfb8-14bd7cba3ed6)
+![image](https://github.com/Rainy-Mask/U-45/assets/107516137/c5c02ceb-d94a-46ab-81a1-29e89148acd5)
+
