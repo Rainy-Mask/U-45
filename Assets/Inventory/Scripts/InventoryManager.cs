@@ -158,11 +158,11 @@ public class InventoryManager : MonoBehaviour
                 playerStats.IncreaseThirst(medicines[0].thirst);
                 Debug.Log("Use Item Arveles Thirst : " + medicines[0].thirst);
                 playerStats.DecreaseWeightCapasity(medicines[0].weight);
-                //playerStats.IncreaseHealth(medicines[0].health);  Bu kýsým þuanlýk eklenmedi
+                //playerStats.IncreaseHealth(medicines[0].health);  Bu kï¿½sï¿½m ï¿½uanlï¿½k eklenmedi
             }
             else if (item.name == "Beans")
             {
-                //playerStats.IncreaseHealth(foods[0].health);  Bu kýsým þuanlýk eklenmedi
+                //playerStats.IncreaseHealth(foods[0].health);  Bu kï¿½sï¿½m ï¿½uanlï¿½k eklenmedi
                 playerStats.IncreaseHunger(foods[0].hunger);
                 playerStats.IncreaseThirst(foods[0].thirst);
                 playerStats.DecreaseWeightCapasity(foods[0].weight);
@@ -173,7 +173,7 @@ public class InventoryManager : MonoBehaviour
             }
             else if (item.name == "CannedMeat")
             {
-                //playerStats.IncreaseHealth(foods[0].health);  Bu kýsým þuanlýk eklenmedi
+                //playerStats.IncreaseHealth(foods[0].health);  Bu kï¿½sï¿½m ï¿½uanlï¿½k eklenmedi
                 playerStats.IncreaseHunger(foods[2].hunger);
                 playerStats.IncreaseThirst(foods[2].thirst);
                 playerStats.DecreaseWeightCapasity(foods[2].weight);
@@ -184,7 +184,7 @@ public class InventoryManager : MonoBehaviour
             }
             else if (item.name == "Water")
             {
-                //playerStats.IncreaseHealth(foods[1].health);  Bu kýsým þuanlýk eklenmedi
+                //playerStats.IncreaseHealth(foods[1].health);  Bu kï¿½sï¿½m ï¿½uanlï¿½k eklenmedi
                 playerStats.IncreaseThirst(foods[1].thirst);
                 playerStats.DecreaseWeightCapasity(foods[1].weight);
                 /*
