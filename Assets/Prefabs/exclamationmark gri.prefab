@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ae6f512e307378d4c81d52536ff2bcb6, type: 2}
+    - target: {fileID: 1433869746494389899, guid: 35956ca7dc1fe574388eed2696796e90, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2544153209221487378, guid: 35956ca7dc1fe574388eed2696796e90, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -61,7 +65,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3235525683850065575, guid: 35956ca7dc1fe574388eed2696796e90, type: 3}
       propertyPath: m_Name
-      value: exclamationmark
+      value: exclamationmark gri
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069868574201787099, guid: 35956ca7dc1fe574388eed2696796e90, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35956ca7dc1fe574388eed2696796e90, type: 3}
