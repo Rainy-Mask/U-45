@@ -1,12 +1,12 @@
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
-using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
     private bool sanityBelowZero;
-    [SerializeField]private AudioSource sanitySource;
+    [SerializeField] private AudioSource sanitySource;
+    [SerializeField] private InventorySaveLoad inventorySaveLoad;
+
 
 
     public float hunger; // Açlık
@@ -22,23 +22,23 @@ public class PlayerStats : MonoBehaviour
         sanity = 100f;
         weightCapacity = 100f;
 
-        if (PlayerPrefs.HasKey("hunger"))//Oyun başladıktan sonra daha öncesinde kaydedilmiş mi onu kontrol ediyor .Kayededilmiş ise o andaki değerleri atıyor.
+        /* if (PlayerPrefs.HasKey("hunger")) // Oyun başladıktan sonra daha önceden kaydedilmiş mi onu kontrol ediyor. Kaydedilmiş ise o andaki değerleri atıyor.
         {
             Debug.Log("Load Player Stats");
             hunger = PlayerPrefs.GetFloat("hunger");
             thirst = PlayerPrefs.GetFloat("thirst");
             sanity = PlayerPrefs.GetFloat("sanity");
-            weightCapacity = PlayerPrefs.GetFloat("weightCapasity");
-        }
+            weightCapacity = PlayerPrefs.GetFloat("weightCapacity");
+        } */
     }
 
-    public void SaveStats()//Karakter statlaini kaydetmeye yarar
+    public void SaveStats() // Karakter istatistiklerini kaydetmeye yarar
     {
         Debug.Log("Save Player Stats");
         PlayerPrefs.SetFloat("hunger", hunger);
         PlayerPrefs.SetFloat("thirst", thirst);
         PlayerPrefs.SetFloat("sanity", sanity);
-        PlayerPrefs.SetFloat("weightCapasity", weightCapacity);
+        PlayerPrefs.SetFloat("weightCapacity", weightCapacity);
     }
 
     private void Update()
@@ -47,7 +47,7 @@ public class PlayerStats : MonoBehaviour
         CheckHunger();
         CheckThirst();
         CheckSanity();
-        //CheckWeightCapacity();
+        CheckWeightCapacity();
     }
 
     private void CheckHunger()
@@ -70,21 +70,21 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    private void CheckSanity()
+        private void CheckSanity()
     {
-        // Akıl sağlığı kontrolü yapılabilir
         if (sanity <= 0f)
         {
             sanityBelowZero = true;
-            // Karakter akıl sağlığı seviyesi sıfırın altına düştüğünde neler olacağını belirleyebilirsiniz
-            // Örneğin karakterin canını düşürebilir, oyunu sonlandırabilir veya diğer etkileşimler yapabilirsiniz
+            SaveCharacterState(); // Karakter durumunu kaydet
+            StartRandomMinigame(); // Rastgele bir minigame başlat
+            IncreaseSanity(50f); // Karakterin akıl sağlığını artır
         }
         else
         {
             sanityBelowZero = false;
         }
-        
-        if(sanityBelowZero)
+
+        if (sanityBelowZero)
         {
             sanitySource.enabled = true;
         }
@@ -92,8 +92,6 @@ public class PlayerStats : MonoBehaviour
         {
             sanitySource.enabled = false;
         }
-
-
     }
 
     public bool CheckWeightCapacity()
@@ -103,7 +101,6 @@ public class PlayerStats : MonoBehaviour
 
         return false;
 
-        
         // Ağırlık kapasitesi kontrolü yapılabilir
         // Karakterin taşıma kapasitesi aşıldığında neler olacağını belirleyebilirsiniz
         // Örneğin karakterin hızını düşürebilir, hareketini engelleyebilir veya diğer etkileşimler yapabilirsiniz
@@ -113,14 +110,12 @@ public class PlayerStats : MonoBehaviour
     {
         hunger -= amount;
         hunger = Mathf.Clamp(hunger, 0f, 100f);
-        
     }
 
     public void DecreaseThirst(float amount)
     {
         thirst -= amount;
         thirst = Mathf.Clamp(thirst, 0f, 100f);
-        
     }
 
     public void DecreaseSanity(float value)
@@ -129,62 +124,79 @@ public class PlayerStats : MonoBehaviour
         sanity = Mathf.Clamp(sanity, 0f, 100f); // Akıl sağlığını 0 ile 100 arasında tut
     }
 
-    public void DecreaseWeightCapasity(float amaount)
+    public void DecreaseWeightCapacity(float amount)
     {
-
-        weightCapacity -= amaount;
+        weightCapacity -= amount;
         weightCapacity = Mathf.Clamp(weightCapacity, 0f, 200f);
     }
 
-    public void IncreaseHunger(float amaount)
+    public void IncreaseHunger(float amount)
     {
-        hunger += amaount;
+        hunger += amount;
         hunger = Mathf.Clamp(hunger, 0f, 100f);
-        Debug.Log(amaount + " Degeri kadar eklendi.");
+        Debug.Log(amount + " kadar eklendi.");
     }
-    public void IncreaseThirst(float amaount)
+
+    public void IncreaseThirst(float amount)
     {
-        thirst += amaount;
+        thirst += amount;
         thirst = Mathf.Clamp(thirst, 0f, 100f);
-        Debug.Log(amaount + " Degeri kadar eklendi.");
+        Debug.Log(amount + " kadar eklendi.");
     }
 
-    public void IncreaseWeightCapasity(float amaount)
+    public void IncreaseWeightCapacity(float amount)
     {
-        weightCapacity += amaount;
+        weightCapacity += amount;
         weightCapacity = Mathf.Clamp(weightCapacity, 0f, 200f);
-        Debug.Log("TAŞIMA KAPASİTESİ : " + weightCapacity); // kaldır bunu sonradan test amaçlı :)
+        Debug.Log("TAŞIMA KAPASİTESİ: " + weightCapacity);
+    }
+
+    private void IncreaseSanity(float amount)
+    {
+        sanity += amount;
+        sanity = Mathf.Clamp(sanity, 0f, 100f);
+    }
+
+    public void SaveCharacterState()
+    {
+        // Karakterin konumunu ve envanter durumunu kaydet
+        PlayerPrefs.SetFloat("XPos", transform.position.x);
+        PlayerPrefs.SetFloat("YPos", transform.position.y);
+        PlayerPrefs.SetFloat("ZPos", transform.position.z);
+
+        // Envantersiz haliyle birlikte envanterdeki eşyaları da kaydetmek isterseniz, örnek olarak aşağıdaki gibi yapabilirsiniz
+        InventoryManager inventoryManager = GetComponent<InventoryManager>();
+        if (inventoryManager != null)
+        {
+            inventorySaveLoad.SaveInventory(); // Envantersiz haliyle birlikte envanteri de kaydet
+        }
     }
 
 
-    /*     private void UpdateHungerUI()
-        {
-            GameObject hungerTextObj = GameObject.Find("HungerText");
-            if (hungerTextObj != null)
-            {
-                Text hungerText = hungerTextObj.GetComponent<Text>();
-                hungerText.text = "Hunger: " + hunger.ToString("f0");
-            }
-        }
+private void StartRandomMinigame()
+{
+    // Rastgele bir minigame başlat
+    // Burada Random sınıfını kullanabilirsiniz
+    int randomIndex = Random.Range(2, 5); // 0, 1 veya 2 değerlerinden rastgele bir indeks seçer
 
-        private void UpdateThirstUI()
-        {
-            GameObject thirstTextObj = GameObject.Find("ThirstText");
-            if (thirstTextObj != null)
-            {
-                Text thirstText = thirstTextObj.GetComponent<Text>();
-                thirstText.text = "Thirst: " + thirst.ToString("f0");
-            }
-        }
+    if (randomIndex == 2)
+    {
+        SceneManager.LoadScene(2);
+        SaveCharacterState();
+        SaveStats();
+    }
+    else if (randomIndex == 3)
+    {
+        SceneManager.LoadScene(3);
+        SaveCharacterState();
+        SaveStats();
+    }
+    else if (randomIndex == 4)
+    {
+        SceneManager.LoadScene(4);
+        SaveCharacterState();
+        SaveStats();
+    }
+}
 
-        private void UpdateSanityUI()
-        {
-            GameObject sanityTextObj = GameObject.Find("SanityText");
-            if (sanityTextObj != null)
-            {
-                Text sanityText = sanityTextObj.GetComponent<Text>();
-                sanityText.text = "Sanity: " + sanity.ToString();
-            }
-        }
-     */
 }

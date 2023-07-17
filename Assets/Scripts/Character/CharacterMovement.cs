@@ -167,8 +167,8 @@ public class CharacterMovement : MonoBehaviour
 
     private void DoSprint()
     {
-        bool weightCapasity = playerStats.CheckWeightCapacity();
-        if (weightCapasity)
+        bool weightCapacity = playerStats.CheckWeightCapacity();
+        if (weightCapacity)
         {
             walkSpeed = 2f;
             runSpeed = 2f;
