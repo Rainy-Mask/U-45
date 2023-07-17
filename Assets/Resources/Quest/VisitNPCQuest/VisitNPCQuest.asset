@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: VisitNPCQuest
   m_EditorClassIdentifier: 
   <id>k__BackingField: VisitNPCQuest
-  displayName: 
-  levelRequirements: 0
-  questPrerequisites:
-  - {fileID: 11400000, guid: 8e70d6cf19d1ae44cb2b6c5576722b91, type: 2}
-  questStepPrefabs: []
+  displayName: Visit the Survivors!
+  questStepPrefabs:
+  - {fileID: 563344840202614288, guid: 775c1f99b68d2d8408a62952fed14e8b, type: 3}
+  - {fileID: 563344840202614288, guid: 6281fe3d70f4d2540804c0240db4e8f9, type: 3}
+  - {fileID: 563344840202614288, guid: 692bf8c665d97b148a1b2bad590cb118, type: 3}
   goldReward: 200
-  experienceReward: 1000
