@@ -167,6 +167,13 @@ public class CharacterMovement : MonoBehaviour
 
     private void DoSprint()
     {
+        bool weightCapasity = playerStats.CheckWeightCapacity();
+        if (weightCapasity)
+        {
+            walkSpeed = 2f;
+            runSpeed = 2f;
+        }
+
         Jump();
         if (Input.GetKey(KeyCode.LeftShift))
         {

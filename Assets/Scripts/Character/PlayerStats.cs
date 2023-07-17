@@ -94,14 +94,14 @@ public class PlayerStats : MonoBehaviour
 
     }
 
-    public void CheckWeightCapacity()
+    public bool CheckWeightCapacity()
     {
-        if(weightCapacity >= 50)
-        {
-            Debug.Log("YAVAŞLAMASI ICIN KOD");
+        if (weightCapacity >= 50)
+            return true;
 
+        return false;
 
-        }
+        
         // Ağırlık kapasitesi kontrolü yapılabilir
         // Karakterin taşıma kapasitesi aşıldığında neler olacağını belirleyebilirsiniz
         // Örneğin karakterin hızını düşürebilir, hareketini engelleyebilir veya diğer etkileşimler yapabilirsiniz
