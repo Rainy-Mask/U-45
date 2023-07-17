@@ -110,7 +110,7 @@ public class CarController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("end"))
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
     }
 }

@@ -15064,7 +15064,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1143333349
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15086,7 +15086,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1143333348}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -42.06, y: 9.91, z: -69.54}
+  m_LocalPosition: {x: -42.06, y: 9.91, z: -76.53}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -28763,7 +28763,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 883926632466960333}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -48.15, y: 2.56, z: -50.42}
+  m_LocalPosition: {x: -48.15, y: 0.26, z: -50.42}
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -37851,6 +37851,7 @@ MonoBehaviour:
   exitDoorAnim: {fileID: 2103738210}
   exitDoorLight: {fileID: 1193078415}
   interactItemCount_Text: {fileID: 1221836177}
+  exitObject: {fileID: 1143333348}
   itemText: {fileID: 487412078}
   video: {fileID: 1216329958}
   videoGameobject: {fileID: 1216329954}
@@ -38182,7 +38183,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ca699405e267e0f41bd11099feb52266, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.496
+  m_Volume: 0.192
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -39455,6 +39456,7 @@ MonoBehaviour:
   exitDoorAnim: {fileID: 2103738210}
   exitDoorLight: {fileID: 1193078415}
   interactItemCount_Text: {fileID: 1221836177}
+  exitObject: {fileID: 0}
   itemText: {fileID: 487412078}
   video: {fileID: 1216329958}
   videoGameobject: {fileID: 1216329954}
