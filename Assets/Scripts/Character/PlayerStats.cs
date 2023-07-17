@@ -22,14 +22,14 @@ public class PlayerStats : MonoBehaviour
         sanity = 100f;
         weightCapacity = 100f;
 
-        /* if (PlayerPrefs.HasKey("hunger")) // Oyun başladıktan sonra daha önceden kaydedilmiş mi onu kontrol ediyor. Kaydedilmiş ise o andaki değerleri atıyor.
+        if (PlayerPrefs.HasKey("hunger")) // Oyun başladıktan sonra daha önceden kaydedilmiş mi onu kontrol ediyor. Kaydedilmiş ise o andaki değerleri atıyor.
         {
             Debug.Log("Load Player Stats");
             hunger = PlayerPrefs.GetFloat("hunger");
             thirst = PlayerPrefs.GetFloat("thirst");
             sanity = PlayerPrefs.GetFloat("sanity");
             weightCapacity = PlayerPrefs.GetFloat("weightCapacity");
-        } */
+        }
     }
 
     public void SaveStats() // Karakter istatistiklerini kaydetmeye yarar
@@ -76,8 +76,8 @@ public class PlayerStats : MonoBehaviour
         {
             sanityBelowZero = true;
             SaveCharacterState(); // Karakter durumunu kaydet
-            StartRandomMinigame(); // Rastgele bir minigame başlat
             IncreaseSanity(50f); // Karakterin akıl sağlığını artır
+            StartRandomMinigame(); // Rastgele bir minigame başlat
         }
         else
         {
