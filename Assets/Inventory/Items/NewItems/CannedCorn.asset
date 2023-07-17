@@ -16,7 +16,7 @@ MonoBehaviour:
   description: 'Gives Hunger 10       Gives Health 20         Gives Thirst 2 '
   image: {fileID: 21300000, guid: 285f1b5d427b68b4789ee304e5d717b8, type: 3}
   type: 0
-  stackable: 0
+  stackable: 1
   itemPrefab: {fileID: 5459692925457968299, guid: 8ce92b8519c140f4ab2a423f3033fbe9, type: 3}
   count: 1
   weight: 1
