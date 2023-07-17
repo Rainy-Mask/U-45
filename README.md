@@ -154,11 +154,11 @@ Alınan kararlar:
 - **Sprint Review Katılımcıları** : Yiğit Bozbay, Cemre Uysal, Ahmet Melih Kara, Furkan Korkmazgöz, Emine Ecem Nayir.
 
 - **Sprint Notları**: 
-  - UI Tasarımları bitti.
+  - UI Tasarımları tamamlandı.
   - Karakter tasarımı tamamlandı.
   - Worlddesign tamamlandı.
-  - Sesler üzerine çalışıldı.
   - Minimap tasarımı tamamlandı.
+  - Sesler üzerine çalışıldı.
   - Karakterin survival değerleri iyileştirildi. Eklemeler yapıldı.
   - Oyun neredeyse tam planladığımız şekilde ürün teslimine yetişiyor.
 
