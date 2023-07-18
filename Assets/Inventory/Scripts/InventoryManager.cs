@@ -154,42 +154,38 @@ public class InventoryManager : MonoBehaviour
             itemInSlot.count--;
             if (item.name == "Arveles")
             {
+                playerStats.IncreaseSanity(medicines[0].sanity);
                 playerStats.IncreaseThirst(medicines[0].thirst);
-                Debug.Log("Use Item Arveles Thirst : " + medicines[0].thirst);
                 playerStats.DecreaseWeightCapacity(medicines[0].weight);
-                //playerStats.IncreaseHealth(medicines[0].health);  Bu k�s�m �uanl�k eklenmedi
+            }
+            else if (item.name == "Asprin")
+            {
+                playerStats.IncreaseSanity(medicines[0].sanity);
+                playerStats.IncreaseThirst(medicines[0].thirst);
+                playerStats.DecreaseWeightCapacity(medicines[0].weight);
             }
             else if (item.name == "Beans")
             {
-                //playerStats.IncreaseHealth(foods[0].health);  Bu k�s�m �uanl�k eklenmedi
                 playerStats.IncreaseHunger(foods[0].hunger);
                 playerStats.IncreaseThirst(foods[0].thirst);
                 playerStats.DecreaseWeightCapacity(foods[0].weight);
-                /*
-                Debug.Log("Use Item Apple Hunger : " + foods[0].hunger);
-                Debug.Log("Use Item Apple Thirst : " + foods[0].thirst);
-                */
             }
             else if (item.name == "CannedMeat")
             {
-                //playerStats.IncreaseHealth(foods[0].health);  Bu k�s�m �uanl�k eklenmedi
                 playerStats.IncreaseHunger(foods[2].hunger);
                 playerStats.IncreaseThirst(foods[2].thirst);
                 playerStats.DecreaseWeightCapacity(foods[2].weight);
-
-                Debug.Log("Use Item CanndeMeat Hunger : " + foods[0].hunger);
-                Debug.Log("Use Item CannedMeat Thirst : " + foods[0].thirst);
-
+            }
+            else if (item.name == "CannedCorn")
+            {
+                playerStats.IncreaseHunger(foods[4].hunger);
+                playerStats.IncreaseThirst(foods[4].thirst);
+                playerStats.DecreaseWeightCapacity(foods[4].weight);
             }
             else if (item.name == "Water")
             {
-                //playerStats.IncreaseHealth(foods[1].health);  Bu k�s�m �uanl�k eklenmedi
                 playerStats.IncreaseThirst(foods[1].thirst);
                 playerStats.DecreaseWeightCapacity(foods[1].weight);
-                /*
-                Debug.Log("Use Item Apple Hunger : " + foods[0].hunger);
-                Debug.Log("Use Item Apple Thirst : " + foods[0].thirst);
-                */
             }
             else if (item.name == "Soda")
             {
@@ -209,39 +205,5 @@ public class InventoryManager : MonoBehaviour
             return item;
         }
         return null;
-        /*
-        InventorySlot slot = inventorySlots[selectedSlot];
-        InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
-        PlayerStats playerStats = GetComponent<PlayerStats>();
-        if (itemInSlot != null)
-        {
-            Item item = itemInSlot.item;
-            itemInSlot.count--;
-            
-            if(item.name == "Arveles")
-            {
-                Debug.Log("Name ARVELES");
-                Medicine medicine = GetComponent<Medicine>();
-                playerStats.IncreaseHunger(medicine.health);
-            }
-            else if(item.name == "Apple")
-            {
-                Debug.Log("Name APPLE");
-                Food food = GetComponent<Food>();
-                playerStats.IncreaseHunger(food.health);
-            }
-
-            if (itemInSlot.count <= 0)
-            {
-                Destroy(itemInSlot.gameObject);
-            }
-            else
-            {
-                itemInSlot.RefreshCount();
-            }
-            return item;
-        }
-        return null;
-        */
     }
 }

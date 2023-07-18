@@ -6,7 +6,5 @@ using UnityEngine;
 public class Food : Item
 {
     public float hunger;
-    public float thirst;
-    public float health;
-     
+    public float thirst;     
 }

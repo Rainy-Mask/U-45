@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CannedMeat
   m_EditorClassIdentifier: 
   name: CannedMeat
-  description: Gives Hunger 30 Decrease Thirst 5 Gives Health 15
+  description: 'Gives Hunger 30 Decrease Thirst 5  '
   image: {fileID: 21300000, guid: 39e419024d8741444a063b7b8b60dfaf, type: 3}
   type: 1
   stackable: 1
@@ -22,4 +22,3 @@ MonoBehaviour:
   weight: 1
   hunger: 30
   thirst: -5
-  health: 15

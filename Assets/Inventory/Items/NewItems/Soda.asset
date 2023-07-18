@@ -21,5 +21,4 @@ MonoBehaviour:
   count: 1
   weight: 0.5
   hunger: 0
-  thirst: 10
-  health: 3
+  thirst: 15

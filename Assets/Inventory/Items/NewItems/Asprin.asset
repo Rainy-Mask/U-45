@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Asprin
   m_EditorClassIdentifier: 
   name: Asprin
-  description: Gives Health 30 Decrease Thirst 5
+  description: Gives Sanity 10 Decrease Thirst 5
   image: {fileID: 21300000, guid: f29835394bf0f604e9ec350d3de38c31, type: 3}
   type: 0
   stackable: 1
   itemPrefab: {fileID: 3421608655712470723, guid: cb72bd7f08f2f164f89db531936ec889, type: 3}
   count: 1
   weight: 0.25
-  health: 30
+  sanity: 10
   thirst: -5

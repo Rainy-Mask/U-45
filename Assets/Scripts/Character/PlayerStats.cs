@@ -151,7 +151,7 @@ public class PlayerStats : MonoBehaviour
         Debug.Log("TAŞIMA KAPASİTESİ: " + weightCapacity);
     }
 
-    private void IncreaseSanity(float amount)
+    public void IncreaseSanity(float amount)
     {
         sanity += amount;
         sanity = Mathf.Clamp(sanity, 0f, 100f);
