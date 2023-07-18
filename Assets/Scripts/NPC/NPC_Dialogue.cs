@@ -1,12 +1,11 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class NPC_Dialogue : MonoBehaviour
-{ 
+{ /*
     public TextMeshProUGUI dialogueText;
     public string[] lines;
     public float textSpeed;
@@ -33,7 +32,7 @@ public class NPC_Dialogue : MonoBehaviour
             }
         }
     }
-    public void StartDialog()
+    void StartDialog()
     {
         index = 0;
         StartCoroutine(TypeLine()); 
@@ -64,5 +63,112 @@ public class NPC_Dialogue : MonoBehaviour
             dialogueText.text = string.Empty;
             Array.Resize(ref lines, 0);
         }
+    }*/
+
+    public TextMeshProUGUI dialogueText;
+    public string[] lines;
+    public float textSpeed;
+    public float autoSpeed; // Otomatik geçiþ hýzý
+
+    private int currentIndex;
+    private bool isTyping;
+    private Coroutine typingCoroutine;
+
+    public int index 
+    {
+        get { return currentIndex; }
+        set { currentIndex = value; }
+    }
+
+    private void Start()
+    {
+        dialogueText.text = string.Empty;
+        currentIndex = 0;
+        isTyping = false;
+    }
+
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (isTyping)
+            {
+                CompleteLine();
+            }
+            else
+            {
+                NextLine();
+            }
+        }
+    }
+
+    public void StartDialog()
+    {
+        if (lines.Length > 0)
+        {
+            currentIndex = 0;
+            isTyping = true;
+            dialogueText.text = string.Empty;
+            typingCoroutine = StartCoroutine(TypeLine());
+        }
+        else
+        {
+            EndDialog();
+        }
+    }
+
+    IEnumerator TypeLine()
+    {
+        string line = lines[currentIndex];
+        int charIndex = 0;
+        while (charIndex < line.Length)
+        {
+            dialogueText.text += line[charIndex];
+            charIndex++;
+            yield return new WaitForSeconds(textSpeed);
+        }
+
+        yield return new WaitForSeconds(autoSpeed);
+        NextLine();
+    }
+
+    void CompleteLine()
+    {
+        if (isTyping)
+        {
+            StopCoroutine(typingCoroutine);
+            dialogueText.text = lines[currentIndex];
+            isTyping = false;
+        }
+    }
+
+    void NextLine()
+    {
+        if (isTyping)
+        {
+            CompleteLine();
+        }
+        else
+        {
+            currentIndex++;
+            if (currentIndex < lines.Length)
+            {
+                isTyping = true;
+                dialogueText.text = string.Empty;
+                typingCoroutine = StartCoroutine(TypeLine());
+            }
+            else
+            {
+                EndDialog();
+            }
+        }
+    }
+
+    void EndDialog()
+    {
+        gameObject.SetActive(false);
+        dialogueText.text = string.Empty;
+        lines = new string[0];
     }
 } 
