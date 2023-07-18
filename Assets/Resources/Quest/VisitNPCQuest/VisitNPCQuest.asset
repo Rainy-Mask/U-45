@@ -15,7 +15,7 @@ MonoBehaviour:
   <id>k__BackingField: VisitNPCQuest
   displayName: Visit the Survivors!
   questStepPrefabs:
-  - {fileID: 1299243122757262164, guid: f7bf100157bf4f746928bfb0a0282be7, type: 3}
-  - {fileID: 631027473858791855, guid: e8d844daab174a547881232781fdf9c7, type: 3}
-  - {fileID: 7583560588938852683, guid: 95219e8eb17ef144881f951ed9926b45, type: 3}
+  - {fileID: 563344840202614288, guid: 775c1f99b68d2d8408a62952fed14e8b, type: 3}
+  - {fileID: 563344840202614288, guid: 6281fe3d70f4d2540804c0240db4e8f9, type: 3}
+  - {fileID: 563344840202614288, guid: 692bf8c665d97b148a1b2bad590cb118, type: 3}
   goldReward: 200
