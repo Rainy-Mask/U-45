@@ -22,7 +22,7 @@ public class PipeController : MonoBehaviour
         pipeCountText.text = pipeCount.ToString();
         if (pipeCount == 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene(1);
         }
         if (isTaked)
         {

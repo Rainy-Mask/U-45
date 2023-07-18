@@ -5,6 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Scriptable Object/Item/Medicine")]
 public class Medicine : Item
 {
-    public float health;
+    public float sanity;
     public float thirst;
 }

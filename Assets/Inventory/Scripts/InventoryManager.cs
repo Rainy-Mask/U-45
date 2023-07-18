@@ -8,7 +8,6 @@ public class InventoryManager : MonoBehaviour
     public InventorySlot[] inventorySlots;
     public GameObject inventoryItemPrefab;
     public Transform MainCharTransform;
-    public Transform RightHand;
     public PlayerStats playerStats;
     public Food[] foods;
     public Medicine[] medicines;
@@ -70,7 +69,7 @@ public class InventoryManager : MonoBehaviour
             InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
             if (itemInSlot != null && itemInSlot.item == item && itemInSlot.count < 4 && item.stackable == true)
             {
-                playerStats.IncreaseWeightCapasity(item.weight);
+                playerStats.IncreaseWeightCapacity(item.weight);
                 itemInSlot.count++;
                 itemInSlot.RefreshCount();
                 return true;
@@ -84,7 +83,7 @@ public class InventoryManager : MonoBehaviour
             if (itemInSlot == null)
             {
                 SpawnItem(item, slot);
-                playerStats.IncreaseWeightCapasity(item.weight);
+                playerStats.IncreaseWeightCapacity(item.weight);
                 return true;
             }
         }
@@ -98,7 +97,7 @@ public class InventoryManager : MonoBehaviour
     }
     public void SpawnItem(GameObject itemPrefab) // Item drop kismi icin olusturuldu ama daha bitmedi
     {
-        Vector3 spawnPosition = MainCharTransform.position + new Vector3(0f, 0f, 3f);
+        Vector3 spawnPosition = MainCharTransform.position + new Vector3(0f, 0.5f, 3f);
         GameObject newItemGO = Instantiate(itemPrefab, spawnPosition, Quaternion.identity);
     }
 
@@ -155,48 +154,44 @@ public class InventoryManager : MonoBehaviour
             itemInSlot.count--;
             if (item.name == "Arveles")
             {
+                playerStats.IncreaseSanity(medicines[0].sanity);
                 playerStats.IncreaseThirst(medicines[0].thirst);
-                Debug.Log("Use Item Arveles Thirst : " + medicines[0].thirst);
-                playerStats.DecreaseWeightCapasity(medicines[0].weight);
-                //playerStats.IncreaseHealth(medicines[0].health);  Bu kýsým þuanlýk eklenmedi
+                playerStats.DecreaseWeightCapacity(medicines[0].weight);
+            }
+            else if (item.name == "Asprin")
+            {
+                playerStats.IncreaseSanity(medicines[0].sanity);
+                playerStats.IncreaseThirst(medicines[0].thirst);
+                playerStats.DecreaseWeightCapacity(medicines[0].weight);
             }
             else if (item.name == "Beans")
             {
-                //playerStats.IncreaseHealth(foods[0].health);  Bu kýsým þuanlýk eklenmedi
                 playerStats.IncreaseHunger(foods[0].hunger);
                 playerStats.IncreaseThirst(foods[0].thirst);
-                playerStats.DecreaseWeightCapasity(foods[0].weight);
-                /*
-                Debug.Log("Use Item Apple Hunger : " + foods[0].hunger);
-                Debug.Log("Use Item Apple Thirst : " + foods[0].thirst);
-                */
+                playerStats.DecreaseWeightCapacity(foods[0].weight);
             }
             else if (item.name == "CannedMeat")
             {
-                //playerStats.IncreaseHealth(foods[0].health);  Bu kýsým þuanlýk eklenmedi
                 playerStats.IncreaseHunger(foods[2].hunger);
                 playerStats.IncreaseThirst(foods[2].thirst);
-                playerStats.DecreaseWeightCapasity(foods[2].weight);
-
-                Debug.Log("Use Item CanndeMeat Hunger : " + foods[0].hunger);
-                Debug.Log("Use Item CannedMeat Thirst : " + foods[0].thirst);
-
+                playerStats.DecreaseWeightCapacity(foods[2].weight);
+            }
+            else if (item.name == "CannedCorn")
+            {
+                playerStats.IncreaseHunger(foods[4].hunger);
+                playerStats.IncreaseThirst(foods[4].thirst);
+                playerStats.DecreaseWeightCapacity(foods[4].weight);
             }
             else if (item.name == "Water")
             {
-                //playerStats.IncreaseHealth(foods[1].health);  Bu kýsým þuanlýk eklenmedi
                 playerStats.IncreaseThirst(foods[1].thirst);
-                playerStats.DecreaseWeightCapasity(foods[1].weight);
-                /*
-                Debug.Log("Use Item Apple Hunger : " + foods[0].hunger);
-                Debug.Log("Use Item Apple Thirst : " + foods[0].thirst);
-                */
+                playerStats.DecreaseWeightCapacity(foods[1].weight);
             }
             else if (item.name == "Soda")
             {
 
                 playerStats.IncreaseThirst(foods[3].thirst);
-                playerStats.DecreaseWeightCapasity(foods[3].weight);
+                playerStats.DecreaseWeightCapacity(foods[3].weight);
             }
 
                 if (itemInSlot.count <= 0)
@@ -210,39 +205,5 @@ public class InventoryManager : MonoBehaviour
             return item;
         }
         return null;
-        /*
-        InventorySlot slot = inventorySlots[selectedSlot];
-        InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
-        PlayerStats playerStats = GetComponent<PlayerStats>();
-        if (itemInSlot != null)
-        {
-            Item item = itemInSlot.item;
-            itemInSlot.count--;
-            
-            if(item.name == "Arveles")
-            {
-                Debug.Log("Name ARVELES");
-                Medicine medicine = GetComponent<Medicine>();
-                playerStats.IncreaseHunger(medicine.health);
-            }
-            else if(item.name == "Apple")
-            {
-                Debug.Log("Name APPLE");
-                Food food = GetComponent<Food>();
-                playerStats.IncreaseHunger(food.health);
-            }
-
-            if (itemInSlot.count <= 0)
-            {
-                Destroy(itemInSlot.gameObject);
-            }
-            else
-            {
-                itemInSlot.RefreshCount();
-            }
-            return item;
-        }
-        return null;
-        */
     }
 }

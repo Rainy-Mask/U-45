@@ -72,11 +72,31 @@ public class InventorySaveLoad : MonoBehaviour
                 {
                     if (itemData.itemName == "Arveles")
                     {
+                        inventoryManager.AddItem(itemsToPickup[0]);
+                    }
+                    if (itemData.itemName == "Asprin")
+                    {
                         inventoryManager.AddItem(itemsToPickup[1]);
                     }
-                    if (itemData.itemName == "Apple")
+                    if (itemData.itemName == "Beans")
                     {
-                        inventoryManager.AddItem(itemsToPickup[0]);
+                        inventoryManager.AddItem(itemsToPickup[2]);
+                    }
+                    if (itemData.itemName == "CannedCorn")
+                    {
+                        inventoryManager.AddItem(itemsToPickup[3]);
+                    }
+                    if (itemData.itemName == "CannedMeat")
+                    {
+                        inventoryManager.AddItem(itemsToPickup[4]);
+                    }
+                    if (itemData.itemName == "Soda")
+                    {
+                        inventoryManager.AddItem(itemsToPickup[5]);
+                    }
+                    if (itemData.itemName == "Water")
+                    {
+                        inventoryManager.AddItem(itemsToPickup[6]);
                     }
                 }
             }

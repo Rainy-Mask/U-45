@@ -24,6 +24,8 @@ public class TriggerItem : MonoBehaviour
     private bool commode_1 = false;
     private bool toy = false;
 
+    public GameObject exitObject;
+
     [Header("Obje etkilesimi sonrasi text")]
     [SerializeField] private TextMeshProUGUI itemText;
 
@@ -188,6 +190,7 @@ public class TriggerItem : MonoBehaviour
         if (interactItemCount == 0 && !isEnd)
         {
             isEnd = true;
+            exitObject.SetActive(true);
             StartCoroutine(EndText());
             exitDoorAnim.SetBool("open", true);
             exitDoorLight.enabled = true;
@@ -254,6 +257,7 @@ public class TriggerItem : MonoBehaviour
         }
         if (other.gameObject.CompareTag("exit"))
         {
+            exitObject.SetActive(true);
             SceneManager.LoadScene(1);
         }
     }

@@ -10,12 +10,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private Text thirstText;
     [SerializeField] private Text sanityText;
 
-    [SerializeField] private PlayerStats playerStats;
-
-    private void Start()
-    {
-        playerStats = FindObjectOfType<PlayerStats>();
-    }
+    [SerializeField] PlayerStats playerStats;
 
     private void Update()
     {

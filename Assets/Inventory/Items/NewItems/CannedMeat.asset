@@ -13,13 +13,12 @@ MonoBehaviour:
   m_Name: CannedMeat
   m_EditorClassIdentifier: 
   name: CannedMeat
-  description: Gives Health
+  description: 'Gives Hunger 30 Decrease Thirst 5  '
   image: {fileID: 21300000, guid: 39e419024d8741444a063b7b8b60dfaf, type: 3}
   type: 1
-  stackable: 0
+  stackable: 1
   itemPrefab: {fileID: 919132149155446097, guid: 201ebaa3a3b0a9c43ad9051078a034b3, type: 3}
-  count: 1
-  weight: 0.75
+  count: 2
+  weight: 1
   hunger: 30
   thirst: -5
-  health: 15

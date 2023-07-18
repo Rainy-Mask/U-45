@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3976010259151416569}
   - component: {fileID: 235566769460272822}
   - component: {fileID: 4582253318360032029}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Can Soda Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,9 +94,10 @@ GameObject:
   - component: {fileID: 7671849816971581171}
   - component: {fileID: 2731314158799614580}
   - component: {fileID: 2872662953355394158}
-  m_Layer: 0
+  - component: {fileID: 620711809}
+  m_Layer: 7
   m_Name: Can Soda 1
-  m_TagString: Untagged
+  m_TagString: Food3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,15 +109,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8207276701443020041}
-  m_LocalRotation: {x: -0.693183, y: 0.13963322, z: 0.13963327, w: 0.6931828}
+  m_LocalRotation: {x: -0.69318324, y: 0.13963173, z: 0.13963173, w: 0.69318324}
   m_LocalPosition: {x: 459.0015, y: 28.631485, z: 159.64891}
-  m_LocalScale: {x: 100.000015, y: 100, z: 100}
+  m_LocalScale: {x: 15, y: 15, z: 15}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3976010259151416569}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 22.778}
 --- !u!33 &2731314158799614580
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -167,3 +168,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &620711809
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8207276701443020041}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.015260867, y: 0.015260868, z: 0.029598797}
+  m_Center: {x: -2.0536426e-13, y: 2.093435e-12, z: 0.00007596053}
