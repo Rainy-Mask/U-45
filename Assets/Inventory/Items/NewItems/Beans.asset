@@ -13,13 +13,12 @@ MonoBehaviour:
   m_Name: Beans
   m_EditorClassIdentifier: 
   name: Beans
-  description: 'Gives Hunger 15      Gives Health 10       Gives Thirst 5 '
+  description: 'Gives Hunger 25      Gives Thirst 7 '
   image: {fileID: 21300000, guid: ed3700062767dc2498ed724fd2d0639e, type: 3}
   type: 1
   stackable: 1
   itemPrefab: {fileID: 1896720402374228, guid: baa8d2066558c9a4ebcd1853c4c3ac4e, type: 3}
   count: 1
   weight: 1
-  hunger: 15
-  thirst: 5
-  health: 10
+  hunger: 25
+  thirst: 7
