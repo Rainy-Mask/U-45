@@ -7,29 +7,29 @@ public class CharacterDialogs : MonoBehaviour
 {
     [SerializeField] private NPC_Dialogue _npcDialogue;
     [SerializeField] private GameObject dialoguePanel;
-    [SerializeField] private npc1 _npc;
-    [SerializeField] private npc2 _npc2;
-    [SerializeField] private Remy _remy;
-    [SerializeField] private emily _emily;
-    [SerializeField] private Lily _lily;
-    [SerializeField] private Ashley _ashley;
-    [SerializeField] private Marcus _marcus;
-    [SerializeField] private Sarah _sarah;
-    [SerializeField] private JacksonDocBennett _jacksonDoc;
+    private npc1 _npc;
+    private npc2 _npc2;
+    private Remy _remy;
+    private emily _emily;
+    private Lily _lily;
+    private Ashley _ashley;
+    private Marcus _marcus;
+    private Sarah _sarah;
+    private JacksonDocBennett _jacksonDoc;
 
-    public bool remyTrigger = false;
-    public bool npc1Trigger = false;
-    public bool npc2Trigger = false;
-    public bool emilyTrigger = false;
-    public bool lilyTrigger = false;
-    public bool ashleyTrigger = false;
-    public bool marcusTrigger = false;
-    public bool sarahTrigger = false;
-    public bool jacksonDocTrigger = false;
+    private bool remyTrigger = false;
+    private bool npc1Trigger = false;
+    private bool npc2Trigger = false;
+    private bool emilyTrigger = false;
+    private bool lilyTrigger = false;
+    private bool ashleyTrigger = false;
+    private bool marcusTrigger = false;
+    private bool sarahTrigger = false;
+    private bool jacksonDocTrigger = false;
 
     private void Start()
     {
-        /*_remy = GameObject.FindGameObjectWithTag("Remy").GetComponent<Remy>();
+        _remy = GameObject.FindGameObjectWithTag("Remy").GetComponent<Remy>();
         _npc = GameObject.FindGameObjectWithTag("npc1").GetComponent<npc1>();
         _npc2 = GameObject.FindGameObjectWithTag("npc2").GetComponent<npc2>();
         _emily = GameObject.FindGameObjectWithTag("emily").GetComponent<emily>();
@@ -37,10 +37,10 @@ public class CharacterDialogs : MonoBehaviour
         _ashley = GameObject.FindGameObjectWithTag("ashley").GetComponent<Ashley>();
         _marcus = GameObject.FindGameObjectWithTag("marcus").GetComponent<Marcus>();
         _sarah = GameObject.FindGameObjectWithTag("sarah").GetComponent<Sarah>();
-        _jacksonDoc = GameObject.FindGameObjectWithTag("jacksonDoc").GetComponent<JacksonDocBennett>();*/
+        _jacksonDoc = GameObject.FindGameObjectWithTag("jacksonDoc").GetComponent<JacksonDocBennett>();
     }
 
-    public void Update()
+    private void Update()
     {
         DialogCommands();
     }
@@ -174,5 +174,6 @@ public class CharacterDialogs : MonoBehaviour
                 jacksonDocTrigger = false;
             }
         }
+
     }
 }
