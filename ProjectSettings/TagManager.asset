@@ -71,6 +71,7 @@ TagManager:
   - lily
   - sarah
   - jacksonDoc
+  - meeting
   layers:
   - Default
   - TransparentFX
